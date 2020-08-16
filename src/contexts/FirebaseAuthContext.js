@@ -1,8 +1,4 @@
-import React, {
-  createContext,
-  useEffect,
-  useReducer
-} from 'react';
+import React, { createContext, useEffect, useReducer } from 'react';
 import SplashScreen from 'src/components/SplashScreen';
 import firebase from 'src/lib/firebase';
 
@@ -46,10 +42,19 @@ export const AuthProvider = ({ children }) => {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   };
 
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-
-    return firebase.auth().signInWithPopup(provider);
+  const signInWithGoogle = val => {
+    let provider;
+    switch (val) {
+      case 'Facebook':
+        provider = new firebase.auth.FacebookAuthProvider();
+        return firebase.auth().signInWithPopup(provider);
+      case 'Google':
+        provider = new firebase.auth.GoogleAuthProvider();
+        return firebase.auth().signInWithPopup(provider);
+      default:
+        provider = new firebase.auth.GoogleAuthProvider();
+        return firebase.auth().signInWithPopup(provider);
+    }
   };
 
   const createUserWithEmailAndPassword = async (email, password) => {
@@ -61,11 +66,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (user) {
         // Here you should extract the complete user profile to make it available in your entire app.
         // The auth state only provides basic information.
-        console.log(user)
+        // console.log(user);
 
         dispatch({
           type: 'AUTH_STATE_CHANGED',
@@ -75,7 +80,7 @@ export const AuthProvider = ({ children }) => {
               id: user.uid,
               avatar: user.photoURL,
               email: user.email,
-              name: user.displayName.split(" ")[0],
+              name: user.displayName.split(' ')[0],
               tier: 'Premium'
             }
           }

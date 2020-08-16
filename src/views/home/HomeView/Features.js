@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
   Avatar,
-  Button,
   Box,
   Container,
   Grid,
@@ -130,7 +129,7 @@ const Features = ({ className, ...rest }) => {
                     gutterBottom
                   >
                     {`Come on, you're not gonna let Aaron get a higher score
-                    than you know are you? You are a shoe-in for number 1!`}
+                    than you now are you? You are a shoe-in for number 1!`}
                   </Typography>
                 </Box>
               </Box>

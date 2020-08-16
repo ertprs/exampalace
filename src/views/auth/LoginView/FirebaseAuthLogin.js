@@ -15,13 +15,21 @@ import {
 import useAuth from 'src/hooks/useAuth';
 import useIsMountedRef from 'src/hooks/useIsMountedRef';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   googleButton: {
     backgroundColor: theme.palette.common.white
   },
+  facebookButton: {
+    backgroundColor: '#2c4998',
+    color: theme.palette.common.white,
+    '&:hover': {
+      backgroundColor: '#1b3398'
+    }
+  },
   providerIcon: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    width: '35px'
   },
   divider: {
     flexGrow: 1
@@ -36,10 +44,10 @@ const FirebaseAuthLogin = ({ className, ...rest }) => {
   const { signInWithEmailAndPassword, signInWithGoogle } = useAuth();
   const isMountedRef = useIsMountedRef();
 
-  const handleGoogleClick = async () => {
+  const handleGoogleClick = async (provider) => {
     try {
-      await signInWithGoogle();
-    } catch(err) {
+      await signInWithGoogle(provider);
+    } catch (err) {
       console.error(err);
     }
   };
@@ -47,39 +55,45 @@ const FirebaseAuthLogin = ({ className, ...rest }) => {
   return (
     <>
       <Button
-        className={classes.googleButton}
+        className={classes.facebookButton}
         fullWidth
-        onClick={handleGoogleClick}
+        onClick={() => handleGoogleClick('Facebook')}
         size="large"
         variant="contained"
       >
         <img
           alt="Google"
           className={classes.providerIcon}
-          src="/static/images/google.svg"
+          src="/static/images/facebook_icon.svg"
         />
-        Sign in with Google
+        Sign in with facebook
       </Button>
-      <Box
-        alignItems="center"
-        display="flex"
-        mt={2}
-      >
-        <Divider
-          className={classes.divider}
-          orientation="horizontal"
-        />
-        <Typography 
+      <Box mt={2}>
+        <Button
+          className={classes.googleButton}
+          fullWidth
+          onClick={() => handleGoogleClick('Google')}
+          size="large"
+          variant="contained"
+        >
+          <img
+            alt="Google"
+            className={classes.providerIcon}
+            src="/static/images/google.svg"
+          />
+          Sign in with Google
+        </Button>
+      </Box>
+      <Box alignItems="center" display="flex" mt={2}>
+        <Divider className={classes.divider} orientation="horizontal" />
+        <Typography
           color="textSecondary"
           variant="body1"
           className={classes.dividerText}
         >
           OR
         </Typography>
-        <Divider
-          className={classes.divider}
-          orientation="horizontal"
-        />
+        <Divider className={classes.divider} orientation="horizontal" />
       </Box>
       <Formik
         initialValues={{
@@ -88,14 +102,15 @@ const FirebaseAuthLogin = ({ className, ...rest }) => {
           submit: null
         }}
         validationSchema={Yup.object().shape({
-          email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-          password: Yup.string().max(255).required('Password is required')
+          email: Yup.string()
+            .email('Must be a valid email')
+            .max(255)
+            .required('Email is required'),
+          password: Yup.string()
+            .max(255)
+            .required('Password is required')
         })}
-        onSubmit={async (values, {
-          setErrors,
-          setStatus,
-          setSubmitting
-        }) => {
+        onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
             await signInWithEmailAndPassword(values.email, values.password);
 
@@ -156,9 +171,7 @@ const FirebaseAuthLogin = ({ className, ...rest }) => {
             />
             {errors.submit && (
               <Box mt={3}>
-                <FormHelperText error>
-                  {errors.submit}
-                </FormHelperText>
+                <FormHelperText error>{errors.submit}</FormHelperText>
               </Box>
             )}
             <Box mt={2}>
@@ -181,7 +194,7 @@ const FirebaseAuthLogin = ({ className, ...rest }) => {
 };
 
 FirebaseAuthLogin.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default FirebaseAuthLogin;

@@ -1,9 +1,5 @@
 import _ from 'lodash';
-import {
-  colors,
-  createMuiTheme,
-  responsiveFontSizes
-} from '@material-ui/core';
+import { colors, createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 import { THEMES } from 'src/constants';
 import { softShadows, strongShadows } from './shadows';
 import typography from './typography';
@@ -96,41 +92,11 @@ const themesOptions = [
       }
     },
     shadows: strongShadows
-  },
-  {
-    name: THEMES.UNICORN,
-    palette: {
-      type: 'dark',
-      action: {
-        active: 'rgba(255, 255, 255, 0.54)',
-        hover: 'rgba(255, 255, 255, 0.04)',
-        selected: 'rgba(255, 255, 255, 0.08)',
-        disabled: 'rgba(255, 255, 255, 0.26)',
-        disabledBackground: 'rgba(255, 255, 255, 0.12)',
-        focus: 'rgba(255, 255, 255, 0.12)'
-      },
-      background: {
-        default: '#2a2d3d',
-        dark: '#222431',
-        paper: '#2a2d3d'
-      },
-      primary: {
-        main: '#a67dff'
-      },
-      secondary: {
-        main: '#a67dff'
-      },
-      text: {
-        primary: '#f6f5f8',
-        secondary: '#9699a4'
-      }
-    },
-    shadows: strongShadows
   }
 ];
 
 export const createTheme = (config = {}) => {
-  let themeOptions = themesOptions.find((theme) => theme.name === config.theme);
+  let themeOptions = themesOptions.find(theme => theme.name === config.theme);
 
   if (!themeOptions) {
     console.warn(new Error(`The theme ${config.theme} is not valid`));
@@ -138,12 +104,7 @@ export const createTheme = (config = {}) => {
   }
 
   let theme = createMuiTheme(
-    _.merge(
-      {},
-      baseOptions,
-      themeOptions,
-      { direction: config.direction }
-    )
+    _.merge({}, baseOptions, themeOptions, { direction: config.direction })
   );
 
   if (config.responsiveFontSizes) {
@@ -151,4 +112,4 @@ export const createTheme = (config = {}) => {
   }
 
   return theme;
-}
+};

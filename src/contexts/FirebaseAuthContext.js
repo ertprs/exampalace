@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useReducer } from 'react';
 import SplashScreen from 'src/components/SplashScreen';
 import firebase from 'src/lib/firebase';
+import { API, graphqlOperation } from 'aws-amplify';
+import { listUsers } from 'src/graphql/queries';
 
 const initialAuthState = {
   isAuthenticated: false,
@@ -66,11 +68,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(async user => {
       if (user) {
         // Here you should extract the complete user profile to make it available in your entire app.
         // The auth state only provides basic information.
-        // console.log(user);
+        console.log(user);
+
+        const userList = await API.graphql(graphqlOperation(listUsers));
+        console.log('userList: ');
+        console.log(userList);
 
         dispatch({
           type: 'AUTH_STATE_CHANGED',

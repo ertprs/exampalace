@@ -45,6 +45,7 @@
     "@react-pdf/renderer": "^1.6.10",
     "@reduxjs/toolkit": "^1.4.0",
     "apexcharts": "^3.19.3",
+    "aws-amplify": "^3.0.23",
     "axios": "^0.19.2",
     "axios-mock-adapter": "^1.18.2",
     "change-case": "^4.1.1",

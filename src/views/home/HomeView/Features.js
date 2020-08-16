@@ -38,14 +38,14 @@ const Features = ({ className, ...rest }) => {
           color="secondary"
           align="center"
         >
-          Explore Devias Kit Pro
+          our unique strategy
         </Typography>
         <Typography
           variant="h1"
           align="center"
           color="textPrimary"
         >
-          Not just a pretty face
+          Fun, immersive learning.
         </Typography>
         <Box mt={8}>
           <Grid
@@ -67,14 +67,15 @@ const Features = ({ className, ...rest }) => {
                     gutterBottom
                     color="textPrimary"
                   >
-                    Complete User Flows
+                    Use images to teach vocabulary
                   </Typography>
                   <Typography
                     variant="body1"
                     color="textPrimary"
                   >
-                    Not just a set of tools, the package includes the most common use cases of
-                    user flows like User Management, Second Level Layout.
+                    Vocabulary without a visual representation of the word is 
+                    much less effective. We have over 10,000+ images in our 
+                    dictionary. We can always get more if you need them!
                   </Typography>
                 </Box>
               </Box>
@@ -94,14 +95,14 @@ const Features = ({ className, ...rest }) => {
                     gutterBottom
                     color="textPrimary"
                   >
-                    Support for Plugins
+                    Scaffold learned material
                   </Typography>
                   <Typography
                     variant="body1"
                     color="textPrimary"
                   >
-                    The kit provides support for multiple third-party plugins right out of the box
-                    like Chart.js, Dropzone.js, Kanban Plugin and many more.
+                    {`That's what gives you that sense of accomplishment, you
+                    know, breezing through each question as quick as lightning ⚡️`}
                   </Typography>
                 </Box>
               </Box>
@@ -121,24 +122,16 @@ const Features = ({ className, ...rest }) => {
                     gutterBottom
                     color="textPrimary"
                   >
-                    Designers, we got you
+                    Create competition
                   </Typography>
                   <Typography
                     variant="body1"
                     color="textPrimary"
                     gutterBottom
                   >
-                    We&apos;ve included the source Sketch &amp; Figma files to Plus &amp;
-                    Extended licenses so you can get creative! Build layouts with confidence.
+                    {`Come on, you're not gonna let Aaron get a higher score
+                    than you know are you? You are a shoe-in for number 1!`}
                   </Typography>
-                  <Button
-                    variant="outlined"
-                    component="a"
-                    href="https://sketch.cloud/s/q4a8e"
-                    target="_blank"
-                  >
-                    Preview Design
-                  </Button>
                 </Box>
               </Box>
             </Grid>

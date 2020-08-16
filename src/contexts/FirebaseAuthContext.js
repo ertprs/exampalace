@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
               id: user.uid,
               avatar: user.photoURL,
               email: user.email,
-              name: user.email.split("@")[0],
+              name: user.displayName.split(" ")[0],
               tier: 'Premium'
             }
           }

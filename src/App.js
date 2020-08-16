@@ -18,12 +18,6 @@ import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
 import routes, { renderRoutes } from 'src/routes';
 
-//AWS IMPORTS
-import Amplify from 'aws-amplify';
-import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
-
-
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const history = createBrowserHistory();
 

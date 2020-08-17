@@ -58,8 +58,8 @@ const TopReferrals = ({ className, ...rest }) => {
           <ListItemAvatar>
             <Avatar
               className={classes.avatar}
-              style={{ backgroundColor: 'blue' }}
-            >
+              src={'/static/images/sunrise.svg'}
+              >
               GM
             </Avatar>
           </ListItemAvatar>
@@ -75,7 +75,7 @@ const TopReferrals = ({ className, ...rest }) => {
           <ListItemAvatar>
             <Avatar
               className={classes.avatar}
-              style={{ backgroundColor: 'blue' }}
+              src={'/static/images/sunshine.svg'}
             >
               GA
             </Avatar>
@@ -92,7 +92,7 @@ const TopReferrals = ({ className, ...rest }) => {
           <ListItemAvatar>
             <Avatar
               className={classes.avatar}
-              style={{ backgroundColor: 'blue' }}
+              src={'/static/images/half-moon.svg'}
             >
               GE
             </Avatar>

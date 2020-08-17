@@ -22,17 +22,6 @@ const MessageList = ({
   const classes = useStyles();
   const scrollRef = useRef(null);
 
-  useEffect(() => {
-    const scrollMessagesToBottom = () => {
-      if (scrollRef.current) {
-        scrollRef.current._container.scrollTop = scrollRef.current._container.scrollHeight;
-      }
-    };
-
-    scrollMessagesToBottom();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [thread.messages]);
-
   return (
     <PerfectScrollbar
       className={clsx(classes.root, className)}

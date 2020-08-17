@@ -59,7 +59,7 @@ const TopReferrals = ({ className, ...rest }) => {
             <Avatar
               className={classes.avatar}
               src={'/static/images/sunrise.svg'}
-              >
+            >
               GM
             </Avatar>
           </ListItemAvatar>
@@ -71,7 +71,7 @@ const TopReferrals = ({ className, ...rest }) => {
             Buenos días
           </Typography>
         </ListItem>
-        <ListItem divider={true} key={'greeting-1'}>
+        <ListItem divider={true} key={'greeting-2'}>
           <ListItemAvatar>
             <Avatar
               className={classes.avatar}
@@ -88,7 +88,7 @@ const TopReferrals = ({ className, ...rest }) => {
             Buenas tardes
           </Typography>
         </ListItem>
-        <ListItem divider={true} key={'greeting-1'}>
+        <ListItem divider={false} key={'greeting-3'}>
           <ListItemAvatar>
             <Avatar
               className={classes.avatar}

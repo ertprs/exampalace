@@ -84,36 +84,39 @@ const TopReferrals = ({ className, ...rest }) => {
       <CardHeader action={<GenericMoreButton />} title="Vocabulary" />
       <Divider />
       <List disablePadding>
-        {referrals.map((referral, i) => (
-          <ListItem
-            className={clsx(classes.item, className)}
-            divider={i < referrals.length - 1}
-            key={referral.name}
+        <ListItem
+          className={clsx(classes.item, className)}
+          divider={true}
+          key={'lesson-1'}
+        >
+          <Button
+            className={classes.button}
+            onClick={() => handleOpenedWord(0)}
           >
-            <Button
-              className={classes.button}
-              onClick={() => handleOpenedWord(i)}
-            >
-              <ListItemText
-                primary={referral.name}
-                primaryTypographyProps={{ variant: 'h6' }}
-              />
-              {openedWord === i ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </Button>
-            <Collapse in={openedWord === i}>
-              <Box p={2}>
-                <Typography variant="subtitle2" color="textSecondary">
-                  Un 'greeting' es un saludo. 'Greet' significa 'saludar'. De
-                  acuerdo a la hora actual, debes usar el saludo correcto.
-                </Typography>
-              </Box>
-              <Greetings />
-              <Box p={2}>
-                <Thread />
-              </Box>
-            </Collapse>
-          </ListItem>
-        ))}
+            <ListItemText
+              primary={'Part 1 - Greetings'}
+              primaryTypographyProps={{ variant: 'h6' }}
+            />
+            {openedWord === 0 ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </Button>
+          <Collapse in={openedWord === 0}>
+            <Box p={2}>
+              <Typography variant="subtitle2" color="textSecondary">
+                Un 'greeting' es un saludo. 'Greet' significa 'saludar'. De
+                acuerdo a la hora actual, debes usar el saludo correcto.
+              </Typography>
+            </Box>
+            <Greetings />
+            <Box p={2}>
+            <Box mb={2} display="flex" justifyContent="center">
+              <Typography variant="h5" color="textSecondary">
+                Sample conversation
+              </Typography>
+            </Box>
+              <Thread />
+            </Box>
+          </Collapse>
+        </ListItem>
       </List>
     </Card>
   );

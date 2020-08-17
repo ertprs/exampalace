@@ -134,7 +134,7 @@ Hey, nice projects! I really liked the one in react. What's your quote on kinda 
     from: {
       name: 'Adam Denisov',
       email: 'adam.denisov@devias.io',
-      avatar: '/static/images/avatars/avatar_7.png'
+      avatar: '/static/images/avatars/me.jpeg'
     },
     to: [
       {

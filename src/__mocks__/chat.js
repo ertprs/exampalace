@@ -58,7 +58,7 @@ let contacts = [
   },
   {
     id: '5e86805e2bafd54f66cc95c3',
-    avatar: '/static/images/avatars/avatar_7.png',
+    avatar: '/static/images/avatars/me.jpg',
     isActive: false,
     lastActivity: moment()
       .subtract(2, 'days')
@@ -200,7 +200,7 @@ let threads = [
       },
       {
         id: '5e86805e2bafd54f66cc95c3',
-        avatar: '/static/images/avatars/avatar_7.png',
+        avatar: '/static/images/avatars/me.jpeg',
         name: 'Adam Denisov',
         username: 'adam.denisov'
       }

@@ -4,6 +4,8 @@ import {
   LinearProgress,
   makeStyles
 } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +23,20 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 2000
   }
 }));
+const BorderLinearProgress = withStyles((theme) => ({
+  root: {
+    height: 10,
+    borderRadius: 5,
+  },
+  colorPrimary: {
+    backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+  },
+  bar: {
+    borderRadius: 5,
+    backgroundColor: theme.palette.primary.main,
+  },
+}))(LinearProgress);
+
 
 const SlashScreen = () => {
   const classes = useStyles();
@@ -28,7 +44,7 @@ const SlashScreen = () => {
   return (
     <div className={classes.root}>
       <Box width={400}>
-        <LinearProgress />
+        <BorderLinearProgress />
       </Box>
     </div>
   );

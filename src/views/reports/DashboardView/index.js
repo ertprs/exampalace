@@ -9,7 +9,7 @@ import RealTime from './RealTime';
 import RoiPerCustomer from './RoiPerCustomer';
 import SystemHealth from './SystemHealth';
 import TeamTasks from './TeamTasks';
-import TodaysMoney from './TodaysMoney';
+import CurrentLesson from './CurrentLesson';
 // import firebase from 'src/lib/firebase';
 
 const useStyles = makeStyles(theme => ({
@@ -39,11 +39,8 @@ const DashboardView = () => {
       <Container maxWidth={false}>
         <Header />
         <Grid container spacing={3}>
-          <Grid item lg={3} sm={6} xs={12}>
-            <TodaysMoney />
-          </Grid>
-          <Grid item lg={3} sm={6} xs={12}>
-            <NewProjects />
+          <Grid item lg={6} sm={6} xs={12}>
+            <CurrentLesson />
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <SystemHealth />

@@ -461,8 +461,63 @@ mock.onGet('/api/reports/top-referrals').reply(() => {
     {
       color: colors.blueGrey['700'],
       initials: 'GT',
-      name: 'GitHub',
-      value: 53032
+      name: 'Part 1 - Greetings',
+      translation: 'Buenos días, ¿Como estás?'
+    },
+    {
+      color: colors.cyan['500'],
+      initials: 'TW',
+      name: 'Twitter',
+      value: 39551
+    },
+    {
+      color: colors.indigo[600],
+      initials: 'HN',
+      name: 'Hacker News',
+      value: 23150
+    },
+    {
+      color: colors.red['500'],
+      initials: 'SO',
+      name: 'Stack Overflow',
+      value: 14093
+    },
+    {
+      color: colors.orange['900'],
+      initials: 'RD',
+      name: 'Reddit.com',
+      value: 7251
+    },
+    {
+      color: colors.blueGrey['900'],
+      initials: 'DE',
+      name: 'Dev.to',
+      value: 5694
+    },
+    {
+      color: colors.blue['900'],
+      initials: 'FB',
+      name: 'Facebook',
+      value: 3643
+    },
+    {
+      color: colors.blueGrey['900'],
+      initials: 'MD',
+      name: 'Medium',
+      value: 1654
+    }
+  ];
+
+  return [200, { referrals }];
+});
+
+mock.onGet('/api/greetings').reply(() => {
+  const referrals = [
+    {
+      color: colors.blueGrey['700'],
+      initials: 'GT',
+      name: 'Part 1 - Greetings',
+      translation: 'Buenos días, ¿Como estás?'
     },
     {
       color: colors.cyan['500'],

@@ -64,7 +64,6 @@ const TopBar = ({ className, ...rest }) => {
         >
           <Button
             color="secondary"
-            component="a"
             variant="outlined"
             size="small"
           >

@@ -10,6 +10,7 @@ import RoiPerCustomer from './RoiPerCustomer';
 import SystemHealth from './SystemHealth';
 import TeamTasks from './TeamTasks';
 import TodaysMoney from './TodaysMoney';
+// import firebase from 'src/lib/firebase';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,7 +23,16 @@ const useStyles = makeStyles(theme => ({
 
 const DashboardView = () => {
   const classes = useStyles();
+  // React.useEffect(() => {
+  //   const getData = async () => {
+  //     const db = firebase.firestore();
+  //     const userRef = db.collection('users');
+  //     const doc = await userRef.get();
+  //     console.log(doc)
 
+  //   };
+  //   getData();
+  // }, []);
 
   return (
     <Page className={classes.root} title="Dashboard">

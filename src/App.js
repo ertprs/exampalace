@@ -18,6 +18,7 @@ import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
 import routes, { renderRoutes } from 'src/routes';
 
+
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const history = createBrowserHistory();
 
@@ -30,6 +31,7 @@ const App = () => {
     theme: settings.theme
   });
 
+ 
   return (
     <ThemeProvider theme={theme}>
       <StylesProvider jss={jss}>

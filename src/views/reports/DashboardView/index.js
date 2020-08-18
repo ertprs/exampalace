@@ -7,7 +7,7 @@ import NewProjects from './NewProjects';
 import PerformanceOverTime from './PerformanceOverTime';
 import RealTime from './RealTime';
 import RoiPerCustomer from './RoiPerCustomer';
-import SystemHealth from './SystemHealth';
+import StudentStats from './StudentStats';
 import TeamTasks from './TeamTasks';
 import CurrentLesson from './CurrentLesson';
 // import firebase from 'src/lib/firebase';
@@ -40,26 +40,23 @@ const DashboardView = () => {
         <Header />
         <Grid container spacing={3}>
           <Grid item lg={6} sm={6} xs={12}>
+            <StudentStats />
+          </Grid>
+          <Grid item lg={6} sm={6} xs={12}>
             <CurrentLesson />
           </Grid>
-          <Grid item lg={3} sm={6} xs={12}>
-            <SystemHealth />
-          </Grid>
-          <Grid item lg={3} sm={6} xs={12}>
-            <RoiPerCustomer />
-          </Grid>
-          <Grid item lg={3} xs={12}>
+          {/* <Grid item lg={3} xs={12}>
             <RealTime />
-          </Grid>
-          <Grid item lg={9} xs={12}>
+          </Grid> */}
+          <Grid item lg={12} xs={12}>
             <PerformanceOverTime />
           </Grid>
-          <Grid item lg={5} xl={4} xs={12}>
+          {/* <Grid item lg={5} xl={4} xs={12}>
             <TeamTasks />
-          </Grid>
-          <Grid item lg={7} xl={8} xs={12}>
+          </Grid> */}
+          {/* <Grid item lg={7} xl={8} xs={12}>
             <LatestProjects />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Page>

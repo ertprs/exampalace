@@ -83,7 +83,7 @@ const Header = ({ className, ...rest }) => {
           Welcome!
         </Typography>
       </Grid>
-      <Grid item>
+      {/* <Grid item>
         <Button
           ref={actionRef}
           onClick={() => setMenuOpen(true)}
@@ -118,7 +118,7 @@ const Header = ({ className, ...rest }) => {
             </MenuItem>
           ))}
         </Menu>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

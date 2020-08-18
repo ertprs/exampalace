@@ -87,7 +87,7 @@ const Chart = ({
             beginAtZero: true,
             min: 0,
             maxTicksLimit: 7,
-            callback: (value) => (value > 0 ? `${value}K` : value)
+            callback: (value) => (value > 0 ? `${value}%` : value)
           }
         }
       ]
@@ -108,10 +108,10 @@ const Chart = ({
       callbacks: {
         title: () => {},
         label: (tooltipItem) => {
-          let label = `Income: ${tooltipItem.yLabel}`;
+          let label = `Percent: ${tooltipItem.yLabel}`;
 
           if (tooltipItem.yLabel > 0) {
-            label += 'K';
+            label += '%';
           }
 
           return label;

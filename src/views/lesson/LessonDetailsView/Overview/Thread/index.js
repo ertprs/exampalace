@@ -23,7 +23,7 @@ const dummyThreads = [
       {
         id: '5e867f0a5bc0ff2bfa07bfa6',
         attachments: [],
-        body: 'Good morning! How was your trip México?',
+        body: 'Good morning! How was your trip to México?',
         contentType: 'text',
         createdAt: moment()
           .subtract(10, 'hours')
@@ -82,7 +82,7 @@ const dummyThreads = [
         id: '5e867f22fd2e27a09849b4db',
         attachments: [],
         body:
-          "Sure! No problem. Talk soon!",
+          "It was pretty good, thanks. Are you home now?",
         contentType: 'text',
         createdAt: moment()
           .subtract(3, 'minutes')

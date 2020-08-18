@@ -32,40 +32,18 @@ const PerformanceOverTime = ({ className, ...rest }) => {
       labels: []
     },
     thisYear: {
-      data: [10, 5, 11, 20, 13, 28, 18, 4, 13, 12, 13, 5],
-      labels: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec'
-      ]
+      data: [90, 80, 84, 93, 79],
+      labels: ['Reading', 'Writing', 'Grammar', 'Vocabulary', 'Spelling']
     }
   };
 
   return (
-    <Card
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
-      <CardHeader
-        action={<GenericMoreButton />}
-        title="Performance Over Time"
-      />
+    <Card className={clsx(classes.root, className)} {...rest}>
+      <CardHeader action={<GenericMoreButton />} title="English stats" />
       <Divider />
       <CardContent>
         <PerfectScrollbar>
-          <Box
-            height={375}
-            minWidth={500}
-          >
+          <Box height={375} minWidth={500}>
             <Chart
               className={classes.chart}
               data={performance.thisYear.data}

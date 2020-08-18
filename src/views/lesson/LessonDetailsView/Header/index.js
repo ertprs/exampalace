@@ -76,21 +76,6 @@ const Header = ({ className, project, ...rest }) => {
               fontSize="small"
               className={classes.badgeIcon}
             >
-              {project.isActive ? <CheckIcon /> : <AlertIcon /> }
-            </SvgIcon>
-            <Typography
-              variant="body2"
-              color="inherit"
-              component="span"
-            >
-              {project.isActive ? 'Active' : 'Inactive'}
-            </Typography>
-          </div>
-          <div className={classes.badge}>
-            <SvgIcon
-              fontSize="small"
-              className={classes.badgeIcon}
-            >
               <CalendarIcon />
             </SvgIcon>
             <Typography
@@ -98,7 +83,7 @@ const Header = ({ className, project, ...rest }) => {
               color="inherit"
               component="span"
             >
-              {`Deadline ${moment(project.endDate).fromNow()}`}
+              Lesson 1
             </Typography>
           </div>
         </Box>
@@ -125,7 +110,7 @@ const Header = ({ className, project, ...rest }) => {
             </SvgIcon>
           }
         >
-          Apply for a role
+          Take exam
         </Button>
         <ApplyModal
           author={project.author}

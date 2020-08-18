@@ -110,7 +110,7 @@ const Hero = ({ className, ...rest }) => {
                 <img alt="Shapes" src="/static/home/shapes.svg" />
               </div>
               <div className={classes.image}>
-                <img alt="Presentation" src="/static/home/dark-light.png" />
+                <img alt="Presentation" src="/static/home/homescreen.png" />
               </div>
             </Box>
           </Grid>

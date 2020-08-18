@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core';
 import getInitials from 'src/utils/getInitials';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   header: {
     paddingBottom: 0
@@ -35,12 +35,9 @@ const Metadata = ({ className, project, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <Card
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
-      <CardHeader
-        avatar={(
+    <Card className={clsx(classes.root, className)} {...rest}>
+      {/* <CardHeader
+        avatar={
           <Avatar
             alt="Author"
             component={RouterLink}
@@ -49,10 +46,10 @@ const Metadata = ({ className, project, ...rest }) => {
           >
             {getInitials(project.author.name)}
           </Avatar>
-        )}
+        }
         className={classes.header}
         disableTypography
-        subheader={(
+        subheader={
           <Link
             color="textPrimary"
             component={RouterLink}
@@ -62,71 +59,37 @@ const Metadata = ({ className, project, ...rest }) => {
           >
             {project.author.name}
           </Link>
-        )}
-        title={(
-          <Typography
-            display="block"
-            variant="overline"
-            color="textSecondary"
-          >
+        }
+        title={
+          <Typography display="block" variant="overline" color="textSecondary">
             Contest holder
           </Typography>
-        )}
-      />
+        }
+      /> */}
       <CardContent className={classes.content}>
         <List>
-          <ListItem
-            className={classes.listItem}
-            disableGutters
-            divider
-          >
-            <Typography
-              variant="subtitle2"
-              color="textPrimary"
-            >
-              Deadline
+          <ListItem className={classes.listItem} disableGutters divider>
+            <Typography variant="subtitle2" color="textPrimary">
+              Total Score
             </Typography>
-            <Typography
-              variant="h6"
-              color="textSecondary"
-            >
-              {moment(project.endDate).format('DD MMM YYYY')}
+            <Typography variant="h6" color="textSecondary">
+              96%
             </Typography>
           </ListItem>
-          <ListItem
-            className={classes.listItem}
-            disableGutters
-            divider
-          >
-            <Typography
-              variant="subtitle2"
-              color="textPrimary"
-            >
-              Budget
+          <ListItem className={classes.listItem} disableGutters divider>
+            <Typography variant="subtitle2" color="textPrimary">
+              Lessons completed
             </Typography>
-            <Typography
-              variant="h6"
-              color="textSecondary"
-            >
-              {numeral(project.budget).format(`${project.currency}0,0.00`)}
+            <Typography variant="h6" color="textSecondary">
+              8 / 12
             </Typography>
           </ListItem>
-          <ListItem
-            className={classes.listItem}
-            disableGutters
-            divider
-          >
-            <Typography
-              variant="subtitle2"
-              color="textPrimary"
-            >
-              Last Update
+          <ListItem className={classes.listItem} disableGutters divider>
+            <Typography variant="subtitle2" color="textPrimary">
+              Exams taken
             </Typography>
-            <Typography
-              variant="h6"
-              color="textSecondary"
-            >
-              {moment(project.updatedAt).format('DD MMM YYYY')}
+            <Typography variant="h6" color="textSecondary">
+              8 / 12
             </Typography>
           </ListItem>
         </List>

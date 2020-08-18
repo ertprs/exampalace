@@ -45,7 +45,7 @@ const Overview = ({ className, project, ...rest }) => {
         <Box mb={3}>
           <Metadata project={project} />
         </Box>
-        <Members members={project.members} />
+        {/* <Members members={project.members} /> */}
       </Grid>
     </Grid>
   );

@@ -23,7 +23,8 @@ const dummyThreads = [
       {
         id: '5e867f0a5bc0ff2bfa07bfa6',
         attachments: [],
-        body: 'Good morning! How was your trip to México?',
+        body:
+          "Good Morning! My name is Carlos, and I will be your english Teacher. It's nice to meet you.",
         contentType: 'text',
         createdAt: moment()
           .subtract(10, 'hours')
@@ -34,8 +35,7 @@ const dummyThreads = [
       {
         id: '5e867f167d5f78109ae9f2a4',
         attachments: [],
-        body:
-          "Good morning to you too! My trip was amazing! I can't wait to tell you. How was work this week?",
+        body: 'Nice to meet you too!',
         contentType: 'text',
         createdAt: moment()
           .subtract(2, 'hours')
@@ -46,8 +46,7 @@ const dummyThreads = [
       {
         id: '5e867f1c9ca72084693528f4',
         attachments: [],
-        body:
-          "Work was great actually! I'm busy right now actually, so I'll message you later!",
+        body: 'Are you ready to start the lesson?',
         contentType: 'text',
         createdAt: moment()
           .subtract(5, 'minutes')
@@ -56,40 +55,16 @@ const dummyThreads = [
         senderId: '5e86805e2bafd54f66cc95c3'
       },
       {
-        id: '5e867f22fd2e27a09849b4db',
+        id: '5e867f167d5f78109ae9f2a4',
         attachments: [],
-        body:
-          "Sure! No problem. Talk soon!",
+        body: "Yes, I am. Let's begin!",
         contentType: 'text',
         createdAt: moment()
-          .subtract(3, 'minutes')
+          .subtract(2, 'hours')
           .toDate()
           .getTime(),
         senderId: '5e86809283e28b96d2d38537'
-      },
-      {
-        id: '5e867f28a34d45ac6eb5c41f',
-        attachments: [],
-        body: "Good afternoon! I'm done with work now! How was your day?",
-        contentType: 'text',
-        createdAt: moment()
-          .subtract(1, 'minute')
-          .toDate()
-          .getTime(),
-        senderId: '5e86805e2bafd54f66cc95c3'
-      },
-      {
-        id: '5e867f22fd2e27a09849b4db',
-        attachments: [],
-        body:
-          "It was pretty good, thanks. Are you home now?",
-        contentType: 'text',
-        createdAt: moment()
-          .subtract(3, 'minutes')
-          .toDate()
-          .getTime(),
-        senderId: '5e86809283e28b96d2d38537'
-      },
+      }
     ],
     participants: [
       {

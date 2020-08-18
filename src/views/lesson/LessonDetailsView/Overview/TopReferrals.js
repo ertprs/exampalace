@@ -21,6 +21,7 @@ import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import Greetings from './Greetings';
+import Goodbyes from './Goodbyes';
 import Thread from './Thread';
 
 const useStyles = makeStyles(theme => ({
@@ -87,7 +88,7 @@ const TopReferrals = ({ className, ...rest }) => {
         <ListItem
           className={clsx(classes.item, className)}
           divider={true}
-          key={'lesson-1'}
+          key={'part-1'}
         >
           <Button
             className={classes.button}
@@ -108,11 +109,45 @@ const TopReferrals = ({ className, ...rest }) => {
             </Box>
             <Greetings />
             <Box p={2}>
-            <Box mb={2} display="flex" justifyContent="center">
-              <Typography variant="h5" color="textSecondary">
-                Sample conversation
+              <Box mb={2} display="flex" justifyContent="center">
+                <Typography variant="h5" color="textSecondary">
+                  Sample conversation
+                </Typography>
+              </Box>
+              <Thread />
+            </Box>
+          </Collapse>
+        </ListItem>
+        <ListItem
+          className={clsx(classes.item, className)}
+          divider={true}
+          key={'part-2'}
+        >
+          <Button
+            className={classes.button}
+            onClick={() => handleOpenedWord(1)}
+          >
+            <ListItemText
+              primary={'Part 2 - Goodbyes'}
+              primaryTypographyProps={{ variant: 'h6' }}
+            />
+            {openedWord === 1 ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </Button>
+          <Collapse in={openedWord === 1}>
+            <Box p={2}>
+              <Typography variant="subtitle2" color="textSecondary">
+                'Goodbye' es un adios. 'Say goodbye' significa 'despedirse'. Hay
+                diferentes formas de despedirse, es de acuerdo al momento del
+                siguiente encuentro con la persona, si es que lo habrá.
               </Typography>
             </Box>
+            <Goodbyes />
+            <Box p={2}>
+              <Box mb={2} display="flex" justifyContent="center">
+                <Typography variant="h5" color="textSecondary">
+                  Sample conversation
+                </Typography>
+              </Box>
               <Thread />
             </Box>
           </Collapse>

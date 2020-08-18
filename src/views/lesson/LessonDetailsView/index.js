@@ -37,9 +37,9 @@ const LessonDetailsView = () => {
 
   const tabs = [
     { value: 'overview', label: 'Overview' },
-    { value: 'reviews', label: 'Reviews' },
-    { value: 'activity', label: 'Activity' },
-    { value: 'applicants', label: 'Applicants' }
+    // { value: 'reviews', label: 'Reviews' },
+    // { value: 'activity', label: 'Activity' },
+    // { value: 'applicants', label: 'Applicants' }
   ];
 
   const handleTabsChange = (event, value) => {

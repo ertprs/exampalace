@@ -9,7 +9,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     paddingTop: 128,
@@ -24,10 +24,7 @@ const Testimonials = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <div
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <div className={clsx(classes.root, className)} {...rest}>
       <Container maxWidth="md">
         <Typography
           variant="h2"
@@ -35,29 +32,21 @@ const Testimonials = ({ className, ...rest }) => {
           color="textPrimary"
           className={classes.title}
         >
-          &quot;Devias builds some of the best templates you can find for React.
+          &quot;I picked up English really quick with this immersive method.
           <br />
-          They will save you time.&quot;
+          It's also tons of fun.&quot;
         </Typography>
-        <Box
-          mt={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box mt={6} display="flex" justifyContent="center" alignItems="center">
           <Avatar src="/static/home/olivier.png" />
           <Box ml={2}>
-            <Typography
-              variant="body1"
-              color="textPrimary"
-            >
-              Olivier Tassinari
+            <Typography variant="body1" color="textPrimary">
+              Carlos Zuñiga
               <Typography
                 color="textSecondary"
                 display="inline"
                 component="span"
               >
-                , co-creator of @MaterialUI
+                , co-creator of @ExamPalace
               </Typography>
             </Typography>
           </Box>

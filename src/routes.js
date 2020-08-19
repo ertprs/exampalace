@@ -202,7 +202,7 @@ const routes = [
       {
         exact: true,
         path: '/app/lessons/browse',
-        component: lazy(() => import('src/views/project/ProjectBrowseView'))
+        component: lazy(() => import('src/views/lesson/LessonBrowseView'))
       },
       {
         exact: true,

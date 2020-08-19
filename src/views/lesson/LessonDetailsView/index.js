@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     minHeight: '100%',
-    paddingTop: theme.spacing(3),
+    paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(3)
   }
 }));
@@ -72,8 +72,8 @@ const LessonDetailsView = () => {
       title={project.title}
     >
       <Container maxWidth="lg">
-        <Header project={project} />
-        <Box mt={3}>
+        {/* <Header project={project} /> */}
+        <Box mt={0}>
           <Tabs
             onChange={handleTabsChange}
             scrollButtons="auto"

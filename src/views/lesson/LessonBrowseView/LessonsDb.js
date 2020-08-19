@@ -2,30 +2,18 @@ import moment from 'moment';
 const lessons = [
   {
     id: '5e8dcef8f95685ce21f16f3d',
+    title: 'Greetings and Goodbyes',
     progress: 0,
     caption:
       'Vamos a comenzar aprendiendo como saludar en inglés. El curso esta repleto de vocabulario y examenes que te enseñaran una gran variedad de presentaciones.',
-    currency: '$',
-    isLiked: true,
-    likesCount: 7,
-    location: 'Europe',
     image:
-      'https://images.pexels.com/photos/4473415/pexels-photo-4473415.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
-    rating: 5,
-    membersCount: 2,
-    title: 'Greetings and Goodbyes',
-    type: 'Full-Time',
-    updatedAt: moment()
-      .subtract(24, 'minutes')
-      .toDate()
-      .getTime()
+      'https://images.pexels.com/photos/4473415/pexels-photo-4473415.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
   },
   {
     id: '5e8dcf076c50b9d8e756a5a2',
     progress: 0,
     caption: `Este curso es el curso más potente del verbo 'to be'. Aprenderás todas
       las formas del verbo más común en inglés.`,
-    currency: '$',
     isLiked: true,
     likesCount: 12,
     location: 'Europe',
@@ -45,7 +33,6 @@ const lessons = [
     progress: 0,
     caption:
       'This verb is used to talk about habits. There are many primary verbs you will need to know to have a good handle on english. This course will teach you verbs like eat, sleep, drink, want, need, etc.',
-    currency: '$',
     isLiked: true,
     likesCount: 18,
     location: 'Europe',
@@ -62,22 +49,12 @@ const lessons = [
   },
   {
     id: '5e8dcf1cc7155d0e947dc27f',
+    title: 'Simple Past',
     progress: 0,
     caption:
-      'This verb is used to talk about habits. There are many primary verbs you will need to know to have a good handle on english. This course will teach you verbs like eat, sleep, drink, want, need, etc.',
-    currency: '$',
-    image: '/static/images/projects/project_4.png',
-    isLiked: false,
-    likesCount: 1,
-    location: 'Europe',
-    membersCount: 10,
-    rating: 2,
-    title: 'Neura e-commerce UI Kit',
-    type: 'Full-Time',
-    updatedAt: moment()
-      .subtract(3, 'days')
-      .toDate()
-      .getTime()
+      'Now that you have learned a little bit of verbs, you will see their past form. We will see endings such as -ed.',
+    image:
+      'https://images.pexels.com/photos/3769013/pexels-photo-3769013.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
   },
   {
     id: '5e8dcf252313876001e83221',

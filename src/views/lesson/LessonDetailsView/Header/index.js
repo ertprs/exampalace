@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     width: '315px'
   },
   action: {
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(0),
     '& + &': {
       marginLeft: theme.spacing(1)
     }
@@ -60,17 +60,21 @@ const Header = ({ className, project, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <Grid item>
-        <Typography variant="h4" color="textPrimary">
+      {/* <Grid item>
+        <Typography variant="h3" color="textPrimary">
           {project.title}
         </Typography>
+      </Grid> */}
+      {/* 
+      <Grid item>
+
         <Box p={2}>
           <img
             className={classes.image}
             src={project.image}
             alt={'lesson-image'}
           />
-          {/* <div className={classes.badge}>
+          <div className={classes.badge}>
             <SvgIcon
               fontSize="small"
               className={classes.badgeIcon}
@@ -84,10 +88,10 @@ const Header = ({ className, project, ...rest }) => {
             >
               Lesson 1
             </Typography>
-          </div> */}
+          </div> 
         </Box>
-      </Grid>
-      <Grid item>
+      </Grid> */}
+      {/* <Grid item>
         <Button
           className={classes.action}
           startIcon={
@@ -117,7 +121,7 @@ const Header = ({ className, project, ...rest }) => {
           onClose={handleApplyModalClose}
           open={isApplyModalOpen}
         />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

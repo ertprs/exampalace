@@ -28,7 +28,8 @@ const useStyles = makeStyles(theme => ({
   root: {},
   image: {
     height: 200,
-    backgroundColor: theme.palette.background.dark
+    backgroundColor: theme.palette.background.dark,
+    borderRadius: '3px'
   },
   likedButton: {
     color: colors.red[600]
@@ -132,11 +133,10 @@ const ProjectCard = ({ className, project, ...rest }) => {
           component={RouterLink}
           to="/app/lessons/1"
         >
-        <Button color="secondary" variant="outlined" size="small">
-          Start
-        </Button>
+          <Button color="secondary" variant="outlined" size="small">
+            Start
+          </Button>
         </Link>
-
       </Box>
     </Card>
   );

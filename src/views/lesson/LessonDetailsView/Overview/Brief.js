@@ -22,6 +22,10 @@ const useStyles = makeStyles(theme => ({
   },
   marginLeft: {
     marginLeft: '5px'
+  },
+  image: {
+    width: '100%',
+    borderRadius: '3px'
   }
 }));
 
@@ -32,7 +36,19 @@ const Brief = ({ className, project, ...rest }) => {
     <Card className={clsx(classes.root, className)} {...rest}>
       <CardContent>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={12} lg={12}>
+            <Box p={2} textAlign="center">
+              <Box mb={2}>
+                <Typography variant="h3" color="textPrimary">
+                  {project.title}
+                </Typography>
+              </Box>
+              <img
+                className={classes.image}
+                src={project.image}
+                alt={'lesson-image'}
+              />
+            </Box>
             {/* <Typography variant="subtitle2" color="textSecondary">
               Title
             </Typography>

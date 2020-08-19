@@ -170,7 +170,7 @@ const sections = [
       // },
       {
         title: 'Lessons',
-        href: '/app/kanban',
+        href: '/app/lessons/browse',
         icon: TrelloIcon
       },
       {

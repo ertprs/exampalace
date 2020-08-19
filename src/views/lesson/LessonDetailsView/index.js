@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100%',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(3)
+  },
+  tabs: {
+    backgroundColor: theme.palette.background.dark,
+    zIndex: '99'
   }
 }));
 
@@ -73,7 +77,7 @@ const LessonDetailsView = () => {
     >
       <Container maxWidth="lg">
         {/* <Header project={project} /> */}
-        <Box mt={0}>
+        <Box width="100%" mt={0} position="sticky" top="0" className={classes.tabs}>
           <Tabs
             onChange={handleTabsChange}
             scrollButtons="auto"
@@ -89,8 +93,8 @@ const LessonDetailsView = () => {
               />
             ))}
           </Tabs>
-        </Box>
         <Divider />
+        </Box>
         <Box mt={3}>
           {currentTab === 'overview' && <Overview project={project} />}
           {currentTab === 'reviews' && <Reviews reviews={project.reviews} />}

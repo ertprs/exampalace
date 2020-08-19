@@ -61,7 +61,7 @@ mock.onGet('/api/projects/projects').reply(() => {
       image: '/static/images/projects/project_1.png',
       rating: 5,
       membersCount: 2,
-      title: 'Mella Full Screen Slider',
+      title: 'Greetings and Goodbyes',
       type: 'Full-Time',
       updatedAt: moment()
         .subtract(24, 'minutes')

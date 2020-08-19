@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ProjectBrowseView = () => {
+const LessonBrowseView = () => {
   const classes = useStyles();
   const isMountedRef = useIsMountedRef();
   const [projects, setProjects] = useState([]);
@@ -48,7 +48,7 @@ const ProjectBrowseView = () => {
   return (
     <Page
       className={classes.root}
-      title="Project List"
+      title="Lessons"
     >
       <Container maxWidth="lg">
         <Header />
@@ -63,4 +63,4 @@ const ProjectBrowseView = () => {
   );
 }
 
-export default ProjectBrowseView;
+export default LessonBrowseView;

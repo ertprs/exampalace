@@ -9,7 +9,9 @@ import {
   Link,
   SvgIcon,
   Typography,
-  makeStyles
+  makeStyles,
+  Card,
+  CardContent
 } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PlusCircle as PlusIcon } from 'react-feather';
@@ -46,43 +48,31 @@ const Header = ({ className, ...rest }) => {
           <Link
             variant="body1"
             color="inherit"
-            to="/app/projects"
+            to="/app/lessons/browse"
             component={RouterLink}
           >
-            Projects
+            Lessons
           </Link>
-          <Typography
-            variant="body1"
-            color="textPrimary"
-          >
+          <Typography variant="body1" color="textPrimary">
             Browse
           </Typography>
         </Breadcrumbs>
-        <Typography
-          variant="h3"
-          color="textPrimary"
-        >
-          See the latest opportunities
+        <Typography variant="h3" color="textPrimary">
+          {'Choose a lesson 👩🏾‍🏫'}
         </Typography>
       </Grid>
       <Grid item>
-        <Button
-          color="secondary"
-          component={RouterLink}
-          to="/app/projects/create"
-          variant="contained"
-          startIcon={
-            <SvgIcon fontSize="small">
-              <PlusIcon />
-            </SvgIcon>
-          }
-        >
-          Add new project
-        </Button>
+        <Card>
+          <CardContent>
+            <Typography variant="h6" color="textPrimary">
+              Lessons Completed: 23/42
+            </Typography>
+          </CardContent>
+        </Card>
       </Grid>
     </Grid>
   );
-}
+};
 
 Header.propTypes = {
   className: PropTypes.string

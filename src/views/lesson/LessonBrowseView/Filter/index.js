@@ -17,34 +17,30 @@ import MultiSelect from './MultiSelect';
 const selectOptions = [
   {
     label: 'Type',
-    options: [
-      'Freelance',
-      'Full Time',
-      'Part Time',
-      'Internship']
+    options: ['Reading', 'Writing', 'Grammar', 'Vocabulary', 'Spelling']
   },
   {
     label: 'Level',
     options: ['Novice', 'Expert']
   },
-  {
-    label: 'Location',
-    options: [
-      'Africa',
-      'Asia',
-      'Australia',
-      'Europe',
-      'North America',
-      'South America'
-    ]
-  },
-  {
-    label: 'Roles',
-    options: ['Android', 'Web Developer', 'iOS']
-  }
+  // {
+  //   label: 'Location',
+  //   options: [
+  //     'Africa',
+  //     'Asia',
+  //     'Australia',
+  //     'Europe',
+  //     'North America',
+  //     'South America'
+  //   ]
+  // },
+  // {
+  //   label: 'Roles',
+  //   options: ['Android', 'Web Developer', 'iOS']
+  // }
 ];
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   searchInput: {
     marginLeft: theme.spacing(2)
@@ -66,40 +62,33 @@ const Filter = ({ className, ...rest }) => {
     'Web Developer'
   ]);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     event.persist();
     setInputValue(event.target.value);
   };
 
-  const handleInputKeyup = (event) => {
+  const handleInputKeyup = event => {
     event.persist();
 
     if (event.keyCode === 13 && inputValue) {
       if (!chips.includes(inputValue)) {
-        setChips((prevChips) => [...prevChips, inputValue]);
+        setChips(prevChips => [...prevChips, inputValue]);
         setInputValue('');
       }
     }
   };
 
-  const handleChipDelete = (chip) => {
-    setChips((prevChips) => prevChips.filter((prevChip) => chip !== prevChip));
+  const handleChipDelete = chip => {
+    setChips(prevChips => prevChips.filter(prevChip => chip !== prevChip));
   };
 
-  const handleMultiSelectChange = (value) => {
+  const handleMultiSelectChange = value => {
     setChips(value);
   };
 
   return (
-    <Card
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
-      <Box
-        p={2}
-        display="flex"
-        alignItems="center"
-      >
+    <Card className={clsx(classes.root, className)} {...rest}>
+      <Box p={2} display="flex" alignItems="center">
         <SearchIcon />
         <Input
           disableUnderline
@@ -107,11 +96,11 @@ const Filter = ({ className, ...rest }) => {
           className={classes.searchInput}
           onChange={handleInputChange}
           onKeyUp={handleInputKeyup}
-          placeholder="Enter a keyword"
+          placeholder="Search lessons"
           value={inputValue}
         />
       </Box>
-      <Divider />
+      {/* <Divider />
       <Box
         p={2}
         display="flex"
@@ -126,15 +115,10 @@ const Filter = ({ className, ...rest }) => {
             onDelete={() => handleChipDelete(chip)}
           />
         ))}
-      </Box>
+      </Box> */}
       <Divider />
-      <Box
-        display="flex"
-        alignItems="center"
-        flexWrap="wrap"
-        p={1}
-      >
-        {selectOptions.map((option) => (
+      <Box display="flex" alignItems="center" flexWrap="wrap" p={1}>
+        {selectOptions.map(option => (
           <MultiSelect
             key={option.label}
             label={option.label}
@@ -144,12 +128,10 @@ const Filter = ({ className, ...rest }) => {
           />
         ))}
         <Box flexGrow={1} />
-        <FormControlLabel
-          control={(
-            <Checkbox defaultChecked />
-          )}
+        {/* <FormControlLabel
+          control={<Checkbox defaultChecked />}
           label="In network"
-        />
+        /> */}
       </Box>
     </Card>
   );

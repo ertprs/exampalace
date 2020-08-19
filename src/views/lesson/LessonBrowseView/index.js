@@ -14,6 +14,7 @@ import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import Header from './Header';
 import Filter from './Filter';
 import Results from './Results';
+import lessons from './LessonsDb'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,24 +27,24 @@ const useStyles = makeStyles((theme) => ({
 
 const LessonBrowseView = () => {
   const classes = useStyles();
-  const isMountedRef = useIsMountedRef();
-  const [projects, setProjects] = useState([]);
+  // const isMountedRef = useIsMountedRef();
+  // const [projects, setProjects] = useState(lessons);
 
-  const getProjects = useCallback(async () => {
-    try {
-      const response = await axios.get('/api/projects/projects');
+  // const getProjects = useCallback(async () => {
+  //   try {
+  //     const response = await axios.get('/api/projects/projects');
   
-      if (isMountedRef.current) {
-        setProjects(response.data.projects);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }, [isMountedRef]);
+  //     if (isMountedRef.current) {
+  //       setProjects(response.data.projects);
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }, [isMountedRef]);
 
-  useEffect(() => {
-    getProjects();
-  }, [getProjects]);
+  // useEffect(() => {
+  //   getProjects();
+  // }, [getProjects]);
 
   return (
     <Page
@@ -56,7 +57,7 @@ const LessonBrowseView = () => {
           <Filter />
         </Box>
         <Box mt={6}>
-          <Results projects={projects} />
+          <Results projects={lessons} />
         </Box>
       </Container>
     </Page>

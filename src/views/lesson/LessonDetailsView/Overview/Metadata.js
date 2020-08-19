@@ -36,44 +36,21 @@ const Metadata = ({ className, project, ...rest }) => {
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
-      {/* <CardHeader
-        avatar={
-          <Avatar
-            alt="Author"
-            component={RouterLink}
-            src={project.author.avatar}
-            to="#"
-          >
-            {getInitials(project.author.name)}
-          </Avatar>
-        }
-        className={classes.header}
-        disableTypography
-        subheader={
-          <Link
-            color="textPrimary"
-            component={RouterLink}
-            to="#"
-            underline="none"
-            variant="h6"
-          >
-            {project.author.name}
-          </Link>
-        }
+      <CardHeader
         title={
           <Typography display="block" variant="overline" color="textSecondary">
-            Contest holder
+            Report card
           </Typography>
         }
-      /> */}
+      />
       <CardContent className={classes.content}>
         <List>
           <ListItem className={classes.listItem} disableGutters divider>
             <Typography variant="subtitle2" color="textPrimary">
-              Total Score
+              Grade
             </Typography>
             <Typography variant="h6" color="textSecondary">
-              96%
+              A+ (100%)
             </Typography>
           </ListItem>
           <ListItem className={classes.listItem} disableGutters divider>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import moment from 'moment';
 import numeral from 'numeral';
 import {
   Avatar,
@@ -11,9 +10,9 @@ import {
   CardMedia,
   Divider,
   Grid,
-  IconButton,
   Link,
-  SvgIcon,
+  Button,
+  LinearProgress,
   Tooltip,
   Typography,
   colors,
@@ -33,6 +32,10 @@ const useStyles = makeStyles(theme => ({
   },
   likedButton: {
     color: colors.red[600]
+  },
+  progress: {
+    margin: theme.spacing(0, 1),
+    flexGrow: 1
   },
   membersIcon: {
     marginLeft: theme.spacing(2),
@@ -58,9 +61,12 @@ const ProjectCard = ({ className, project, ...rest }) => {
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
       <Box p={3}>
-        <Typography color="textPrimary" variant="h4">
-          {project.title}
-        </Typography>
+        <CardMedia className={classes.image} image={project.image} />
+        <Box mt={1}>
+          <Typography color="textPrimary" variant="h4">
+            {project.title}
+          </Typography>
+        </Box>
       </Box>
       <Box pb={2} px={3}>
         <Typography color="textSecondary" variant="body2">
@@ -69,35 +75,43 @@ const ProjectCard = ({ className, project, ...rest }) => {
       </Box>
       <Box py={2} px={3}>
         <Grid alignItems="center" container justify="space-between" spacing={3}>
-          <Grid item>
-            <Typography variant="h5" color="textPrimary">
-              {numeral(project.budget).format(`${project.currency}0,0.00`)}
-            </Typography>
-            <Typography variant="body2" color="textSecondary">
-              Budget
-            </Typography>
+          <Grid item lg={12} md={12} xs={12}>
+            {/* <Typography variant="h5" color="textPrimary">
+              Progress
+            </Typography> */}
+            <Box display="flex" alignItems="center" flexWrap="wrap" mt={1}>
+              <Typography variant="h5" color="textSecondary">
+                50%
+              </Typography>
+              <LinearProgress
+                className={classes.progress}
+                value={50}
+                color="secondary"
+                variant="determinate"
+              />
+            </Box>
           </Grid>
-          <Grid item>
+          {/* <Grid item>
             <Typography variant="h5" color="textPrimary">
               {project.location}
             </Typography>
             <Typography variant="body2" color="textSecondary">
               Location
             </Typography>
-          </Grid>
-          <Grid item>
+          </Grid> */}
+          {/* <Grid item>
             <Typography variant="h5" color="textPrimary">
               {project.type}
             </Typography>
             <Typography variant="body2" color="textSecondary">
               Type
             </Typography>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
       <Divider />
       <Box py={2} pl={2} pr={3} display="flex" alignItems="center">
-        {isLiked ? (
+        {/* {isLiked ? (
           <Tooltip title="Unlike">
             <IconButton className={classes.likedButton} onClick={handleUnlike}>
               <FavoriteIcon fontSize="small" />
@@ -109,22 +123,20 @@ const ProjectCard = ({ className, project, ...rest }) => {
               <FavoriteBorderIcon fontSize="small" />
             </IconButton>
           </Tooltip>
-        )}
-        <Typography variant="subtitle2" color="textSecondary">
-          {likesCount}
-        </Typography>
-        <SvgIcon
-          fontSize="small"
-          color="action"
-          className={classes.membersIcon}
-        >
-          <UsersIcon />
-        </SvgIcon>
-        <Typography variant="subtitle2" color="textSecondary">
-          {project.membersCount}
-        </Typography>
+        )} */}
+
+        {/* <Rating value={project.rating} size="small" readOnly /> */}
         <Box flexGrow={1} />
-        <Rating value={project.rating} size="small" readOnly />
+        <Link
+          style={{ textDecoration: 'none' }}
+          component={RouterLink}
+          to="/app/lessons/1"
+        >
+        <Button color="secondary" variant="outlined" size="small">
+          Start
+        </Button>
+        </Link>
+
       </Box>
     </Card>
   );

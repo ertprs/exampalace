@@ -197,6 +197,8 @@ mock.onGet('/api/projects/projects/1').reply(() => {
   const project = {
     id: '5e8dcf076c50b9d8e756a5a2',
     title: 'Greetings and Goodbyes',
+    image:
+      'https://images.pexels.com/photos/4473415/pexels-photo-4473415.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
     description:
       'Existen muchas formas de saludar y despedirse de manera formal y casual.',
     activities: [

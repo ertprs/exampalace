@@ -19,7 +19,7 @@ import {
 } from 'react-feather';
 import ApplyModal from './ApplyModal';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   badge: {
     display: 'flex',
@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
   },
   badgeIcon: {
     marginRight: theme.spacing(1)
+  },
+  image: {
+    width: '315px'
   },
   action: {
     marginBottom: theme.spacing(1),
@@ -58,20 +61,16 @@ const Header = ({ className, project, ...rest }) => {
       {...rest}
     >
       <Grid item>
-        <Typography
-          variant="h3"
-          color="textPrimary"
-        >
+        <Typography variant="h4" color="textPrimary">
           {project.title}
         </Typography>
-        <Box
-          mx={-2}
-          display="flex"
-          color="text.secondary"
-          alignItems="center"
-          flexWrap="wrap"
-        >
-          <div className={classes.badge}>
+        <Box p={2}>
+          <img
+            className={classes.image}
+            src={project.image}
+            alt={'lesson-image'}
+          />
+          {/* <div className={classes.badge}>
             <SvgIcon
               fontSize="small"
               className={classes.badgeIcon}
@@ -85,7 +84,7 @@ const Header = ({ className, project, ...rest }) => {
             >
               Lesson 1
             </Typography>
-          </div>
+          </div> */}
         </Box>
       </Grid>
       <Grid item>

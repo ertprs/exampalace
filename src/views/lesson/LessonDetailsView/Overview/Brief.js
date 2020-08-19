@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
     '& p': {
       marginBottom: theme.spacing(2)
     }
+  },
+  marginLeft: {
+    marginLeft: '5px'
   }
 }));
 
@@ -47,6 +50,7 @@ const Brief = ({ className, project, ...rest }) => {
                 label={'Nice to meet you.'}
               />
               <Chip
+                className={classes.marginLeft}
                 key={'vocab-001'}
                 variant="outlined"
                 label={'See you around.'}

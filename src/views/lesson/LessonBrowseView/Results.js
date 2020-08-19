@@ -72,8 +72,8 @@ const Results = ({ className, projects, ...rest }) => {
         mb={2}
       >
         <Typography className={classes.title} variant="h5" color="textPrimary">
-          {' '}
-          {projects.length} Results
+          {/* {projects.length} Results */}
+          All lessons
         </Typography>
         <Box display="flex" alignItems="center">
           <Button

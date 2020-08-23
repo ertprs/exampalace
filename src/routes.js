@@ -80,7 +80,7 @@ const routes = [
     routes: [
       {
         exact: true,
-        path: '/app/account',
+        path: '/my-account',
         component: lazy(() => import('src/views/account/AccountView'))
       },
       {
@@ -207,6 +207,11 @@ const routes = [
       {
         exact: true,
         path: '/dictionary',
+        component: lazy(() => import('src/views/Dictionary'))
+      },
+      {
+        exact: true,
+        path: '/dictionary/1',
         component: lazy(() => import('src/views/Dictionary'))
       },
       {

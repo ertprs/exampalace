@@ -1,4 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import {
   Box,
   Container,
@@ -44,31 +46,28 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProfileView = () => {
+const MenuTabs = () => {
+  let location = useLocation();
   const classes = useStyles();
   const isMountedRef = useIsMountedRef();
-  const [currentTab, setCurrentTab] = useState('exams');
+  const [currentTab, setCurrentTab] = useState(`/${location.pathname.split("/")[1]}`);
   const [profile, setProfile] = useState(null);
   const { user } = useAuth();
 
   const tabs = [
     {
-      value: 'exams',
       label: <VideogameAssetIcon />,
       href: '/exams'
     },
     {
-      value: 'school',
       label: <SchoolIcon />,
       href: '/school'
     },
     {
-      value: 'friends',
       label: <EmojiPeopleIcon />,
       href: '/friends'
     },
     {
-      value: 'dictionary',
       label: <MenuBookIcon />,
       href: '/dictionary'
     }
@@ -78,7 +77,6 @@ const ProfileView = () => {
     setCurrentTab(value);
   };
 
- 
   return (
     <>
       <Box className={classes.topBar}>
@@ -97,9 +95,9 @@ const ProfileView = () => {
               component={RouterLink}
               to={tab.href}
               className={classes.tab}
-              key={tab.value}
+              key={tab.href}
               label={tab.label}
-              value={tab.value}
+              value={tab.href}
             />
           ))}
         </Tabs>
@@ -109,4 +107,4 @@ const ProfileView = () => {
   );
 };
 
-export default ProfileView;
+export default MenuTabs;

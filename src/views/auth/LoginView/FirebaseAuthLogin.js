@@ -54,7 +54,7 @@ const FirebaseAuthLogin = ({ className, ...rest }) => {
 
   return (
     <>
-      <Button
+      {/* <Button
         className={classes.facebookButton}
         fullWidth
         onClick={() => handleGoogleClick('Facebook')}
@@ -67,7 +67,7 @@ const FirebaseAuthLogin = ({ className, ...rest }) => {
           src="/static/images/facebook_icon.svg"
         />
         Sign in with facebook
-      </Button>
+      </Button> */}
       <Box mt={2}>
         <Button
           className={classes.googleButton}

@@ -62,7 +62,7 @@ const ProjectCard = ({ className, project, ...rest }) => {
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
       <Box p={3}>
-        <CardMedia className={classes.image} image={project.image} />
+        {/* <CardMedia className={classes.image} image={project.image} /> */}
         <Box mt={1}>
           <Typography color="textPrimary" variant="h4">
             {project.title}

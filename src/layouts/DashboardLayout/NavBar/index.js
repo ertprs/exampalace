@@ -44,7 +44,7 @@ import NavItem from './NavItem';
 
 const sections = [
   {
-    subheader: 'Reports',
+    // subheader: 'Reports',
     items: [
       {
         title: 'Dashboard',
@@ -437,9 +437,9 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         </Box>
         <Divider />
         <Box p={2}>
-          {sections.map((section) => (
+          {sections.map((section, i) => (
             <List
-              key={section.subheader}
+              key={`nav-${i}`}
               subheader={(
                 <ListSubheader
                   disableGutters

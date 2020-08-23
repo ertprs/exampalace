@@ -17,7 +17,9 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PlusCircle as PlusIcon } from 'react-feather';
 
 const useStyles = makeStyles(() => ({
-  root: {}
+  root: {
+    marginTop: '48px'
+  }
 }));
 
 const Header = ({ className, ...rest }) => {
@@ -28,42 +30,16 @@ const Header = ({ className, ...rest }) => {
       alignItems="center"
       container
       justify="space-between"
-      spacing={3}
+      spacing={1}
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <Grid item>
-        <Breadcrumbs
-          separator={<NavigateNextIcon fontSize="small" />}
-          aria-label="breadcrumb"
-        >
-          <Link
-            variant="body1"
-            color="inherit"
-            to="/app"
-            component={RouterLink}
-          >
-            Dashboard
-          </Link>
-          <Link
-            variant="body1"
-            color="inherit"
-            to="/app/lessons/browse"
-            component={RouterLink}
-          >
-            Lessons
-          </Link>
-          <Typography variant="body1" color="textPrimary">
-            Browse
-          </Typography>
-        </Breadcrumbs>
-        <Typography variant="h3" color="textPrimary">
-          {'Choose a lesson 👩🏾‍🏫'}
-        </Typography>
-      </Grid>
-      <Grid item>
+      <Grid xs={12} md={12} lg={12} item>
         <Card>
           <CardContent>
+            <Typography variant="h2" color="textPrimary">
+              Lessons
+            </Typography>
             <Typography variant="h6" color="textPrimary">
               Lessons Completed: 23/42
             </Typography>

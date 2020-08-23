@@ -1,22 +1,15 @@
-import React, {
-  useCallback,
-  useState,
-  useEffect
-} from 'react';
-import {
-  Box,
-  Container,
-  makeStyles
-} from '@material-ui/core';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Box, Container, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import axios from 'src/utils/axios';
 import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import Header from './Header';
 import Filter from './Filter';
 import Results from './Results';
-import lessons from './LessonsDb'
+import {VocabularyFeed} from './VocabularyFeed';
+import lessons from './LessonsDb';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     minHeight: '100%',
@@ -33,7 +26,7 @@ const LessonBrowseView = () => {
   // const getProjects = useCallback(async () => {
   //   try {
   //     const response = await axios.get('/api/projects/projects');
-  
+
   //     if (isMountedRef.current) {
   //       setProjects(response.data.projects);
   //     }
@@ -47,21 +40,21 @@ const LessonBrowseView = () => {
   // }, [getProjects]);
 
   return (
-    <Page
-      className={classes.root}
-      title="Lessons"
-    >
+    <Page className={classes.root} title="Lessons">
       <Container maxWidth="lg">
         <Header />
-        <Box mt={3}>
+        <Box mt={1}>
+          <VocabularyFeed />
+        </Box>
+        <Box mt={1}>
           <Filter />
         </Box>
-        <Box mt={6}>
+        <Box mt={1}>
           <Results projects={lessons} />
         </Box>
       </Container>
     </Page>
   );
-}
+};
 
 export default LessonBrowseView;

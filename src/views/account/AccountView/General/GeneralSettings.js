@@ -39,7 +39,7 @@ const GeneralSettings = ({ className, user, ...rest }) => {
         country: user.country || '',
         email: user.email || '',
         isPublic: user.isPublic || false,
-        name: user.name || '',
+        name: user.fullName || '',
         phone: user.phone || '',
         state: user.state || '',
         submit: null

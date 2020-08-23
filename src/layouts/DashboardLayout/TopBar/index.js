@@ -19,41 +19,44 @@ import Contacts from './Contacts';
 import Notifications from './Notifications';
 import Search from './Search';
 import Settings from './Settings';
+import MenuTabs from './MenuTabs';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     zIndex: theme.zIndex.drawer + 100,
-    ...theme.name === THEMES.LIGHT ? {
-      boxShadow: 'none',
-      backgroundColor: theme.palette.primary.main
-    } : {},
-    ...theme.name === THEMES.ONE_DARK ? {
-      backgroundColor: theme.palette.background.default
-    } : {}
+    ...(theme.name === THEMES.LIGHT
+      ? {
+          boxShadow: 'none',
+          backgroundColor: theme.palette.primary.main
+        }
+      : {}),
+    ...(theme.name === THEMES.ONE_DARK
+      ? {
+          backgroundColor: theme.palette.background.default
+        }
+      : {})
   },
   toolbar: {
     minHeight: 64
+  },
+  tabs: {
+    display: 'flex',
+    width: '100%',
+    overflowX: 'scroll',
+    '&::-webkit-scrollbar': {
+      display: 'none'
+    }
   }
 }));
 
-const TopBar = ({
-  className,
-  onMobileNavOpen,
-  ...rest
-}) => {
+const TopBar = ({ className, onMobileNavOpen, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <AppBar
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <AppBar className={clsx(classes.root, className)} {...rest}>
       <Toolbar className={classes.toolbar}>
         <Hidden lgUp>
-          <IconButton
-            color="inherit"
-            onClick={onMobileNavOpen}
-          >
+          <IconButton color="inherit" onClick={onMobileNavOpen}>
             <SvgIcon fontSize="small">
               <MenuIcon />
             </SvgIcon>
@@ -64,17 +67,16 @@ const TopBar = ({
             <Logo />
           </RouterLink>
         </Hidden>
-        <Box
-          ml={2}
-          flexGrow={1}
-        />
-        <Search />
+        <Box className={classes.tabs}>
+          <MenuTabs />
+        </Box>
+        {/* <Search />
         <Contacts />
         <Notifications />
         <Settings />
         <Box ml={2}>
           <Account />
-        </Box>
+        </Box> */}
       </Toolbar>
     </AppBar>
   );

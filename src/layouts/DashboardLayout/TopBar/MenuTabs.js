@@ -2,17 +2,21 @@ import React, { useCallback, useState, useEffect } from 'react';
 import {
   Box,
   Container,
-  Divider,
+  Avatar,
   Tab,
   Tabs,
   makeStyles
 } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 import axios from 'src/utils/axios';
+import useAuth from 'src/hooks/useAuth';
+
 import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import Page from 'src/components/Page';
-import Header from './Header';
-import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import SchoolIcon from '@material-ui/icons/School';
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 // import Timeline from './Timeline';
 // import Connections from './Connections';
 
@@ -23,11 +27,15 @@ const useStyles = makeStyles(theme => ({
   },
   tabs: {
     '&:hover': {
-      backgroundColor: theme.palette.action.hover
+      backgroundColor: theme.palette.action.hover,
+      borderRadius: '10px 10px 0px 0px'
     }
   },
   topBar: {
     backgroundColor: theme.palette.background.paper
+  },
+  indicator: {
+    height: '5px'
   }
 }));
 
@@ -36,11 +44,34 @@ const ProfileView = () => {
   const isMountedRef = useIsMountedRef();
   const [currentTab, setCurrentTab] = useState('timeline');
   const [profile, setProfile] = useState(null);
+  const { user } = useAuth();
 
   const tabs = [
-    { value: 'timeline', label: <SchoolIcon /> },
-    { value: 'connections', label: <VideogameAssetIcon /> },
-
+    {
+      value: 'timeline',
+      label: <SchoolIcon />,
+      href: '/app/reports/dashboard'
+    },
+    {
+      value: 'connections',
+      label: <VideogameAssetIcon />,
+      href: '/app/exams/browse'
+    },
+    {
+      value: 'friends',
+      label: <EmojiPeopleIcon />,
+      href: '/app/reports/dashboard'
+    },
+    {
+      value: 'dictionary',
+      label: <MenuBookIcon />,
+      href: '/app/reports/dashboard'
+    },
+    {
+      value: 'user',
+      label: <Avatar alt="Author" src={user.avatar} />,
+      href: '/app/reports/dashboard'
+    }
   ];
 
   const handleTabsChange = (event, value) => {
@@ -69,16 +100,20 @@ const ProfileView = () => {
 
   return (
     <Page className={classes.root} title="Exam Palace">
-      <Box pt={1} className={classes.topBar}>
+      <Box className={classes.topBar}>
         <Tabs
           onChange={handleTabsChange}
           scrollButtons="auto"
           value={currentTab}
           textColor="secondary"
-          centered
+          classes={{
+            indicator: classes.indicator
+          }}
         >
           {tabs.map(tab => (
             <Tab
+              component={RouterLink}
+              to={tab.href}
               className={classes.tabs}
               key={tab.value}
               label={tab.label}
@@ -86,11 +121,6 @@ const ProfileView = () => {
             />
           ))}
         </Tabs>
-      </Box>
-      {/* <Divider /> */}
-      <Box py={3} pb={6}>
-        {/* {currentTab === 'timeline' && <Timeline profile={profile} />} */}
-        {/* {currentTab === 'connections' && <Connections />} */}
       </Box>
     </Page>
   );

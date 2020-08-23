@@ -11,7 +11,7 @@ import {
   makeStyles,
   Link
 } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import StatsDialog from './StatsDialog';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(2)
@@ -38,24 +38,20 @@ const CurrentLesson = ({ className, ...rest }) => {
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
-      <Link
-        style={{ textDecoration: 'none' }}
-        component={RouterLink}
-        to="/app/lessons/1"
-      >
-        <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Typography
-            className={classes.title}
-            component="h3"
-            gutterBottom
-            variant="overline"
-            color="textSecondary"
-          >
-            {data.lesson}
-          </Typography>
-          <MenuIcon />
-        </Box>
-      </Link>
+      <Box display="flex" alignItems="center" justifyContent="space-between">
+        <Typography
+          className={classes.title}
+          component="h3"
+          gutterBottom
+          variant="overline"
+          color="textSecondary"
+        >
+          {data.lesson}
+        </Typography>
+        <StatsDialog />
+        {/* <MenuIcon /> */}
+      </Box>
+
       <Box display="flex" alignItems="center">
         <Avatar className={classes.avatar} alt="Reviewer">
           12

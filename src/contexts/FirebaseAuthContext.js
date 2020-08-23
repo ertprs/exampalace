@@ -80,8 +80,10 @@ export const AuthProvider = ({ children }) => {
               id: user.uid,
               avatar: user.photoURL,
               email: user.email,
+              fullName: user.displayName,
               name: user.displayName.split(' ')[0],
-              tier: 'Premium'
+              tier: 'Premium',
+              careerChoice: 'Hotel Manager'
             }
           }
         });

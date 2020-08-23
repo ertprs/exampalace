@@ -15,8 +15,8 @@ import { ToggleButtonGroup, ToggleButton, Pagination } from '@material-ui/lab';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ProjectCard from 'src/components/ProjectCard';
-import LessonCard from 'src/components/LessonCard';
-
+import ExamCard from './ExamCard';
+import exams from 'src/_data/Exams';
 const useStyles = makeStyles(theme => ({
   root: {},
   title: {
@@ -72,8 +72,7 @@ const Results = ({ className, projects, ...rest }) => {
         mb={2}
       >
         <Typography className={classes.title} variant="h5" color="textPrimary">
-          {/* {projects.length} Results */}
-          All lessons
+          {exams.length} Results
         </Typography>
         <Box display="flex" alignItems="center">
           <Button
@@ -84,28 +83,18 @@ const Results = ({ className, projects, ...rest }) => {
             {selectedSort}
             <ArrowDropDownIcon />
           </Button>
-          <ToggleButtonGroup
-            exclusive
-            onChange={handleModeChange}
-            size="small"
-            value={mode}
-          >
-            <ToggleButton value="grid">
-              <ViewModuleIcon />
-            </ToggleButton>
-          </ToggleButtonGroup>
         </Box>
       </Box>
       <Grid container spacing={3}>
-        {projects.map(project => (
+        {exams.map(project => (
           <Grid
             item
-            key={project.id}
+            key={project.title}
             md={mode === 'grid' ? 4 : 12}
             sm={mode === 'grid' ? 6 : 12}
             xs={12}
           >
-            <LessonCard project={project} />
+            <ExamCard project={project} />
           </Grid>
         ))}
       </Grid>

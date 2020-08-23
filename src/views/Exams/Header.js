@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
-  Breadcrumbs,
+  Collapse,
   Button,
   Grid,
   Link,
@@ -13,14 +13,19 @@ import {
   Card,
   CardContent
 } from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import SearchIcon from '@material-ui/icons/Search';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PlusCircle as PlusIcon } from 'react-feather';
+import Filter from './Filter';
 
 const useStyles = makeStyles(() => ({
   root: {
     marginTop: '48px'
   },
   cardcontent: {
+    display: 'flex',
+    justifyContent: 'space-between',
     padding: 12,
     '&:last-child': {
       paddingBottom: 12
@@ -30,6 +35,12 @@ const useStyles = makeStyles(() => ({
 
 const Header = ({ className, ...rest }) => {
   const classes = useStyles();
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const handleOpenDrawer = () => {
+    setDrawerOpen(!drawerOpen);
+  };
 
   return (
     <Grid
@@ -46,8 +57,14 @@ const Header = ({ className, ...rest }) => {
             <Typography variant="h2" color="textPrimary">
               Exams
             </Typography>
+            <Button onClick={() => handleOpenDrawer()}>
+              {drawerOpen ? <ExpandLessIcon /> : <SearchIcon />}
+            </Button>
           </CardContent>
         </Card>
+        <Collapse in={drawerOpen}>
+          <Filter />
+        </Collapse>
       </Grid>
     </Grid>
   );

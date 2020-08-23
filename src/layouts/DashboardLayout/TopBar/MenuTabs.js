@@ -50,26 +50,27 @@ const MenuTabs = () => {
   let location = useLocation();
   const classes = useStyles();
   const isMountedRef = useIsMountedRef();
-  const [currentTab, setCurrentTab] = useState(`/${location.pathname.split("/")[1]}`);
+  const [currentTab, setCurrentTab] = useState(`/app/${location.pathname.split("/")[2]}`);
+  console.log(currentTab)
   const [profile, setProfile] = useState(null);
   const { user } = useAuth();
 
   const tabs = [
     {
       label: <VideogameAssetIcon />,
-      href: '/exams'
+      href: '/app/exams'
     },
     {
       label: <SchoolIcon />,
-      href: '/school'
+      href: '/app/school'
     },
     {
       label: <EmojiPeopleIcon />,
-      href: '/friends'
+      href: '/app/friends'
     },
     {
       label: <MenuBookIcon />,
-      href: '/dictionary'
+      href: '/app/dictionary'
     }
   ];
 

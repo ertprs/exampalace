@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {
-  Box,
-  Card,
-  Checkbox,
-  Chip,
-  Divider,
-  FormControlLabel,
-  Input,
-  makeStyles
-} from '@material-ui/core';
+import { Box, Card, Input, makeStyles } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import MultiSelect from './MultiSelect';
 
@@ -21,27 +12,14 @@ const selectOptions = [
   },
   {
     label: 'Level',
-    options: ['Novice', 'Expert']
-  },
-  // {
-  //   label: 'Location',
-  //   options: [
-  //     'Africa',
-  //     'Asia',
-  //     'Australia',
-  //     'Europe',
-  //     'North America',
-  //     'South America'
-  //   ]
-  // },
-  // {
-  //   label: 'Roles',
-  //   options: ['Android', 'Web Developer', 'iOS']
-  // }
+    options: ['Novice', 'Intermediate', 'Expert']
+  }
 ];
 
 const useStyles = makeStyles(theme => ({
-  root: {},
+  root: {
+    marginTop: theme.spacing(1)
+  },
   searchInput: {
     marginLeft: theme.spacing(2)
   },
@@ -96,42 +74,25 @@ const Filter = ({ className, ...rest }) => {
           className={classes.searchInput}
           onChange={handleInputChange}
           onKeyUp={handleInputKeyup}
-          placeholder="Search lessons"
+          placeholder="Search Exams"
           value={inputValue}
         />
-      </Box>
-      {/* <Divider />
-      <Box
-        p={2}
-        display="flex"
-        alignItems="center"
-        flexWrap="wrap"
-      >
-        {chips.map((chip) => (
-          <Chip
-            className={classes.chip}
-            key={chip}
-            label={chip}
-            onDelete={() => handleChipDelete(chip)}
-          />
-        ))}
-      </Box> */}
-      <Divider />
-      <Box display="flex" alignItems="center" flexWrap="wrap" p={1}>
-        {selectOptions.map(option => (
-          <MultiSelect
-            key={option.label}
-            label={option.label}
-            onChange={handleMultiSelectChange}
-            options={option.options}
-            value={chips}
-          />
-        ))}
-        <Box flexGrow={1} />
-        {/* <FormControlLabel
+        <Box display="flex" alignItems="center" flexWrap="no-wrap">
+          {selectOptions.map(option => (
+            <MultiSelect
+              key={option.label}
+              label={option.label}
+              onChange={handleMultiSelectChange}
+              options={option.options}
+              value={chips}
+            />
+          ))}
+          <Box flexGrow={1} />
+          {/* <FormControlLabel
           control={<Checkbox defaultChecked />}
           label="In network"
         /> */}
+        </Box>
       </Box>
     </Card>
   );

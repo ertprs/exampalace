@@ -4,9 +4,8 @@ import Page from 'src/components/Page';
 import axios from 'src/utils/axios';
 import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import Header from './Header';
-import Filter from './Filter';
 import Results from './Results';
-import {VocabularyFeed} from './VocabularyFeed';
+import { VocabularyFeed } from './VocabularyFeed';
 import lessons from './LessonsDb';
 
 const useStyles = makeStyles(theme => ({
@@ -15,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     minHeight: '100%',
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3)
+  },
+  container: {
+    padding: '4px 12px'
   }
 }));
 
@@ -23,14 +25,8 @@ const ExamsView = () => {
 
   return (
     <Page className={classes.root} title="Exams">
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className={classes.container}>
         <Header />
-        <Box mt={1}>
-          <VocabularyFeed />
-        </Box>
-        <Box mt={1}>
-          <Filter />
-        </Box>
         <Box mt={1}>
           <Results projects={lessons} />
         </Box>

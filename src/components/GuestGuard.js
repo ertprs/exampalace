@@ -7,7 +7,7 @@ const GuestGuard = ({ children }) => {
   const { isAuthenticated } = useAuth();
   //LOGIN-REDIRECT
   if (isAuthenticated) {
-    return <Redirect to="/exams" />;
+    return <Redirect to="/app/exams" />;
   }
 
   return (

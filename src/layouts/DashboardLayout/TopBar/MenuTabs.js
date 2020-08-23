@@ -27,7 +27,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     minHeight: '100%'
   },
-  tabs: {
+  topBar: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-between'
   },
   tab: {
     '&:hover': {
@@ -50,14 +53,14 @@ const ProfileView = () => {
 
   const tabs = [
     {
-      value: 'timeline',
-      label: <SchoolIcon />,
-      href: '/app/reports/dashboard'
+      value: 'exams',
+      label: <VideogameAssetIcon />,
+      href: '/exams'
     },
     {
-      value: 'connections',
-      label: <VideogameAssetIcon />,
-      href: '/app/exams/browse'
+      value: 'timeline',
+      label: <SchoolIcon />,
+      href: '/school'
     },
     {
       value: 'friends',
@@ -68,12 +71,12 @@ const ProfileView = () => {
       value: 'dictionary',
       label: <MenuBookIcon />,
       href: '/app/reports/dashboard'
-    },
-    {
-      value: 'user',
-      label: <Account />,
-      href: '/app/reports/dashboard'
     }
+    // {
+    //   value: 'user',
+    //   label: <Account />,
+    //   href: '/app/reports/dashboard'
+    // }
   ];
 
   const handleTabsChange = (event, value) => {
@@ -103,28 +106,29 @@ const ProfileView = () => {
   return (
     <>
       <Box className={classes.topBar}>
-      <Tabs
-        onChange={handleTabsChange}
-        scrollButtons="auto"
-        value={currentTab}
-        textColor="secondary"
-        classes={{
-          indicator: classes.indicator
-        }}
-        className={classes.tabs}
-      >
-        {tabs.map(tab => (
-          <Tab
-            component={RouterLink}
-            to={tab.href}
-            className={classes.tab}
-            key={tab.value}
-            label={tab.label}
-            value={tab.value}
-          />
-        ))}
-      </Tabs>
+        <Tabs
+          onChange={handleTabsChange}
+          scrollButtons="auto"
+          value={currentTab}
+          textColor="secondary"
+          classes={{
+            indicator: classes.indicator
+          }}
+          className={classes.tabs}
+        >
+          {tabs.map(tab => (
+            <Tab
+              component={RouterLink}
+              to={tab.href}
+              className={classes.tab}
+              key={tab.value}
+              label={tab.label}
+              value={tab.value}
+            />
+          ))}
+        </Tabs>
       </Box>
+      <Account />
     </>
   );
 };

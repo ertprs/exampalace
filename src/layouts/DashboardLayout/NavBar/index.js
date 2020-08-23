@@ -41,16 +41,23 @@ import {
 import Logo from 'src/components/Logo';
 import useAuth from 'src/hooks/useAuth';
 import NavItem from './NavItem';
+import SchoolIcon from '@material-ui/icons/School';
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 
 const sections = [
   {
     // subheader: 'Reports',
     items: [
       {
-        title: 'Dashboard',
-        icon: PieChartIcon,
-        href: '/app/reports/dashboard'
+        title: 'Exams',
+        icon: VideogameAssetIcon,
+        href: '/exams'
       },
+      {
+        title: 'School',
+        icon: SchoolIcon,
+        href: '/school'
+      }
       // {
       //   title: 'Dashboard Alternative',
       //   icon: BarChartIcon,
@@ -181,7 +188,7 @@ const sections = [
       {
         title: 'Resources',
         href: '/app/chat',
-        icon: MessageCircleIcon,
+        icon: MessageCircleIcon
         // info: () => (
         //   <Chip
         //     color="secondary"
@@ -193,7 +200,7 @@ const sections = [
       {
         title: 'My city',
         href: '/app/calendar',
-        icon: CalendarIcon,
+        icon: CalendarIcon
         // info: () => (
         //   <Chip
         //     color="secondary"
@@ -203,7 +210,7 @@ const sections = [
         // )
       }
     ]
-  },
+  }
   // {
   //   subheader: 'Auth',
   //   items: [
@@ -287,11 +294,7 @@ const sections = [
   // }
 ];
 
-function renderNavItems({
-  items,
-  pathname,
-  depth = 0
-}) {
+function renderNavItems({ items, pathname, depth = 0 }) {
   return (
     <List disablePadding>
       {items.reduce(
@@ -302,12 +305,7 @@ function renderNavItems({
   );
 }
 
-function reduceChildRoutes({
-  acc,
-  pathname,
-  item,
-  depth
-}) {
+function reduceChildRoutes({ acc, pathname, item, depth }) {
   const key = item.title + depth;
 
   if (item.items) {
@@ -377,40 +375,22 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   }, [location.pathname]);
 
   const content = (
-    <Box
-      height="100%"
-      display="flex"
-      flexDirection="column"
-    >
+    <Box height="100%" display="flex" flexDirection="column">
       <PerfectScrollbar options={{ suppressScrollX: true }}>
         <Hidden lgUp>
-          <Box
-            p={2}
-            display="flex"
-            justifyContent="center"
-          >
+          <Box p={2} display="flex" justifyContent="center">
             <RouterLink to="/">
               <Logo />
             </RouterLink>
           </Box>
         </Hidden>
         <Box p={2}>
-          <Box
-            display="flex"
-            justifyContent="center"
-          >
+          <Box display="flex" justifyContent="center">
             <RouterLink to="/app/account">
-              <Avatar
-                alt="User"
-                className={classes.avatar}
-                src={user.avatar}
-              />
+              <Avatar alt="User" className={classes.avatar} src={user.avatar} />
             </RouterLink>
           </Box>
-          <Box
-            mt={2}
-            textAlign="center"
-          >
+          <Box mt={2} textAlign="center">
             <Link
               component={RouterLink}
               to="/app/account"
@@ -420,16 +400,10 @@ const NavBar = ({ onMobileClose, openMobile }) => {
             >
               {user.name}
             </Link>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-            >
+            <Typography variant="body2" color="textSecondary">
               {/* Your tier:
               {' '} */}
-              <Link
-                component={RouterLink}
-                to="/pricing"
-              >
+              <Link component={RouterLink} to="/pricing">
                 {user.tier}
               </Link>
             </Typography>
@@ -437,24 +411,21 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         </Box>
         <Divider />
         <Box p={2}>
-          {sections.map((section, i) => (
+          {/* {sections.map((section, i) => (
             <List
               key={`nav-${i}`}
-              subheader={(
-                <ListSubheader
-                  disableGutters
-                  disableSticky
-                >
+              subheader={
+                <ListSubheader disableGutters disableSticky>
                   {section.subheader}
                 </ListSubheader>
-              )}
+              }
             >
               {renderNavItems({
                 items: section.items,
                 pathname: location.pathname
               })}
             </List>
-          ))}
+          ))} */}
         </Box>
         <Divider />
       </PerfectScrollbar>

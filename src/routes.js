@@ -74,7 +74,7 @@ const routes = [
     component: lazy(() => import('src/views/auth/RegisterView'))
   },
   {
-    path: '/app',
+    // path: '/app',
     guard: AuthGuard,
     layout: DashboardLayout,
     routes: [
@@ -201,7 +201,12 @@ const routes = [
       },
       {
         exact: true,
-        path: '/app/lessons/browse',
+        path: '/school',
+        component: lazy(() => import('src/views/lesson/LessonBrowseView'))
+      },
+      {
+        exact: true,
+        path: '/exams',
         component: lazy(() => import('src/views/lesson/LessonBrowseView'))
       },
       {

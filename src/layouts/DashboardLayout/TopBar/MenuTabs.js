@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 const ProfileView = () => {
   const classes = useStyles();
   const isMountedRef = useIsMountedRef();
-  const [currentTab, setCurrentTab] = useState('timeline');
+  const [currentTab, setCurrentTab] = useState('exams');
   const [profile, setProfile] = useState(null);
   const { user } = useAuth();
 
@@ -58,51 +58,27 @@ const ProfileView = () => {
       href: '/exams'
     },
     {
-      value: 'timeline',
+      value: 'school',
       label: <SchoolIcon />,
       href: '/school'
     },
     {
       value: 'friends',
       label: <EmojiPeopleIcon />,
-      href: '/app/reports/dashboard'
+      href: '/friends'
     },
     {
       value: 'dictionary',
       label: <MenuBookIcon />,
-      href: '/app/reports/dashboard'
+      href: '/dictionary'
     }
-    // {
-    //   value: 'user',
-    //   label: <Account />,
-    //   href: '/app/reports/dashboard'
-    // }
   ];
 
   const handleTabsChange = (event, value) => {
     setCurrentTab(value);
   };
 
-  const getPosts = useCallback(async () => {
-    try {
-      const response = await axios.get('/api/social/profile');
-
-      if (isMountedRef.current) {
-        setProfile(response.data.profile);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }, [isMountedRef]);
-
-  useEffect(() => {
-    getPosts();
-  }, [getPosts]);
-
-  if (!profile) {
-    return null;
-  }
-
+ 
   return (
     <>
       <Box className={classes.topBar}>

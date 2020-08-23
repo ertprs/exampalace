@@ -201,13 +201,23 @@ const routes = [
       },
       {
         exact: true,
+        path: '/friends',
+        component: lazy(() => import('src/views/Friends'))
+      },
+      {
+        exact: true,
+        path: '/dictionary',
+        component: lazy(() => import('src/views/Dictionary'))
+      },
+      {
+        exact: true,
         path: '/school',
-        component: lazy(() => import('src/views/lesson/LessonBrowseView'))
+        component: lazy(() => import('src/views/School'))
       },
       {
         exact: true,
         path: '/exams',
-        component: lazy(() => import('src/views/lesson/LessonBrowseView'))
+        component: lazy(() => import('src/views/Exams'))
       },
       {
         exact: true,

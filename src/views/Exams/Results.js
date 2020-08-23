@@ -85,7 +85,7 @@ const Results = ({ className, projects, ...rest }) => {
           </Button>
         </Box>
       </Box>
-      <Grid container spacing={3}>
+      <Grid container spacing={1}>
         {exams.map(project => (
           <Grid
             item

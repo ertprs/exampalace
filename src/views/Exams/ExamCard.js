@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     width: '100%',
+    borderRadius: '5px'
   }
 }));
 
@@ -75,21 +76,21 @@ const ProjectCard = ({ className, project: exam, ...rest }) => {
           </Typography>
         </Box>
       </Box>
-      <Box pb={2} px={3}>
+      <Box pb={1} px={2}>
         <Typography color="textSecondary" variant="body2">
           {exam.caption}
         </Typography>
       </Box>
-      <Box pb={2} px={3}>
+      <Box pb={1} px={2}>
         <img src={exam.image} alt={exam.title} className={classes.image} />
       </Box>
-      <Box pb={2} px={3}>
+      <Box pb={1} px={2}>
         <Typography color="textSecondary" variant="body2">
           {exam.description}
         </Typography>
       </Box>
       <Divider />
-      <Box py={2} pl={2} pr={3} display="flex" alignItems="center">
+      <Box py={1} pl={1} pr={2} display="flex" alignItems="center">
         <Rating
           icon={<FitnessCenterIcon />}
           value={exam.difficulty}

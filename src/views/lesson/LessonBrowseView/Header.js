@@ -19,6 +19,12 @@ import { PlusCircle as PlusIcon } from 'react-feather';
 const useStyles = makeStyles(() => ({
   root: {
     marginTop: '48px'
+  },
+  cardcontent: {
+    padding: 12,
+    '&:last-child': {
+      paddingBottom: 12
+    }
   }
 }));
 
@@ -36,12 +42,9 @@ const Header = ({ className, ...rest }) => {
     >
       <Grid xs={12} md={12} lg={12} item>
         <Card>
-          <CardContent>
+          <CardContent className={classes.cardcontent}>
             <Typography variant="h2" color="textPrimary">
               Lessons
-            </Typography>
-            <Typography variant="h6" color="textPrimary">
-              Lessons Completed: 23/42
             </Typography>
           </CardContent>
         </Card>

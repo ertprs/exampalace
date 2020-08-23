@@ -10,6 +10,7 @@ import {
 import { Link as RouterLink } from 'react-router-dom';
 import axios from 'src/utils/axios';
 import useAuth from 'src/hooks/useAuth';
+import Account from './Account';
 
 import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import Page from 'src/components/Page';
@@ -22,20 +23,21 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.dark,
+    // backgroundColor: 'red',
+    backgroundColor: theme.palette.background.paper,
     minHeight: '100%'
   },
   tabs: {
+  },
+  tab: {
     '&:hover': {
       backgroundColor: theme.palette.action.hover,
-      borderRadius: '10px 10px 0px 0px'
+      borderRadius: '10px 10px 1px 1px'
     }
   },
-  topBar: {
-    backgroundColor: theme.palette.background.paper
-  },
   indicator: {
-    height: '5px'
+    height: '5px',
+    borderRadius: '10px 10px 10px 10px'
   }
 }));
 
@@ -69,7 +71,7 @@ const ProfileView = () => {
     },
     {
       value: 'user',
-      label: <Avatar alt="Author" src={user.avatar} />,
+      label: <Account />,
       href: '/app/reports/dashboard'
     }
   ];
@@ -99,30 +101,31 @@ const ProfileView = () => {
   }
 
   return (
-    <Page className={classes.root} title="Exam Palace">
+    <>
       <Box className={classes.topBar}>
-        <Tabs
-          onChange={handleTabsChange}
-          scrollButtons="auto"
-          value={currentTab}
-          textColor="secondary"
-          classes={{
-            indicator: classes.indicator
-          }}
-        >
-          {tabs.map(tab => (
-            <Tab
-              component={RouterLink}
-              to={tab.href}
-              className={classes.tabs}
-              key={tab.value}
-              label={tab.label}
-              value={tab.value}
-            />
-          ))}
-        </Tabs>
+      <Tabs
+        onChange={handleTabsChange}
+        scrollButtons="auto"
+        value={currentTab}
+        textColor="secondary"
+        classes={{
+          indicator: classes.indicator
+        }}
+        className={classes.tabs}
+      >
+        {tabs.map(tab => (
+          <Tab
+            component={RouterLink}
+            to={tab.href}
+            className={classes.tab}
+            key={tab.value}
+            label={tab.label}
+            value={tab.value}
+          />
+        ))}
+      </Tabs>
       </Box>
-    </Page>
+    </>
   );
 };
 

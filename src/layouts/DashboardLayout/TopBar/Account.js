@@ -1,7 +1,4 @@
-import React, {
-  useRef,
-  useState
-} from 'react';
+import React, { useRef, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
@@ -17,11 +14,11 @@ import {
 } from '@material-ui/core';
 import useAuth from 'src/hooks/useAuth';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   avatar: {
     height: 32,
     width: 32,
-    marginRight: theme.spacing(1)
+    marginLeft: theme.spacing(2)
   },
   popover: {
     width: 200
@@ -66,19 +63,12 @@ const Account = () => {
         onClick={handleOpen}
         ref={ref}
       >
-        <Avatar
-          alt="User"
-          className={classes.avatar}
-          src={user.avatar}
-        />
         <Hidden smDown>
-          <Typography
-            variant="h6"
-            color="inherit"
-          >
+          <Typography variant="h6" color="inherit">
             {user.name}
           </Typography>
         </Hidden>
+        <Avatar alt="User" className={classes.avatar} src={user.avatar} />
       </Box>
       <Menu
         onClose={handleClose}
@@ -92,24 +82,16 @@ const Account = () => {
         anchorEl={ref.current}
         open={isOpen}
       >
-        <MenuItem
-          component={RouterLink}
-          to="/app/social/profile"
-        >
+        <MenuItem component={RouterLink} to="/app/social/profile">
           Profile
         </MenuItem>
-        <MenuItem
-          component={RouterLink}
-          to="/app/account"
-        >
+        <MenuItem component={RouterLink} to="/app/account">
           Account
         </MenuItem>
-        <MenuItem onClick={handleLogout}>
-          Logout
-        </MenuItem>
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </>
   );
-}
+};
 
 export default Account;

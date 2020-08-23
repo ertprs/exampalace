@@ -20,155 +20,15 @@ const vocabFeedArray = [
     }
   },
   {
-    word: 'wake up',
+    word: 'hang on',
     image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+      'https://images.pexels.com/photos/4067766/pexels-photo-4067766.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     classification: 'phrasal verb',
     author: {
       name: 'Don Fields',
       avatar: '/static/images/avatars/avatar_6.png'
     }
   },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  },
-  {
-    word: 'wake up',
-    image:
-      'https://images.pexels.com/photos/3807632/pexels-photo-3807632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
-    classification: 'phrasal verb',
-    author: {
-      name: 'Don Fields',
-      avatar: '/static/images/avatars/avatar_6.png'
-    }
-  }
 ];
 
 const useStyles = makeStyles(theme => ({

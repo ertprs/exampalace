@@ -14,7 +14,6 @@ import {
 import { Menu as MenuIcon } from 'react-feather';
 import Logo from 'src/components/Logo';
 import { THEMES } from 'src/constants';
-import Account from './Account';
 import Contacts from './Contacts';
 import Notifications from './Notifications';
 import Search from './Search';
@@ -37,7 +36,8 @@ const useStyles = makeStyles(theme => ({
       : {})
   },
   toolbar: {
-    minHeight: 64
+    minHeight: 64,
+    paddingTop: '16px',
   },
   tabs: {
     display: 'flex',
@@ -66,6 +66,9 @@ const TopBar = ({ className, onMobileNavOpen, ...rest }) => {
           <RouterLink to="/">
             <Logo />
           </RouterLink>
+        </Hidden>
+        <Hidden mdDown>
+          <Box mr={24} />
         </Hidden>
         <Box className={classes.tabs}>
           <MenuTabs />

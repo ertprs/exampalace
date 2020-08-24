@@ -35,7 +35,6 @@ const useStyles = makeStyles(() => ({
 
 const Header = ({ className, title, ...rest }) => {
   const classes = useStyles();
-  
   return (
     <Grid
       alignItems="center"
@@ -48,7 +47,7 @@ const Header = ({ className, title, ...rest }) => {
       <Grid xs={12} md={12} lg={12} item>
         <Card>
           <CardContent className={classes.cardcontent}>
-            <Typography variant="h3" color="textPrimary">
+            <Typography variant="h5" color="textPrimary">
               {title}
             </Typography>
           </CardContent>

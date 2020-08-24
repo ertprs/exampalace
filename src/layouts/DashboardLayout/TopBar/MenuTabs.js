@@ -51,7 +51,6 @@ const MenuTabs = () => {
   const classes = useStyles();
   const isMountedRef = useIsMountedRef();
   const [currentTab, setCurrentTab] = useState(`/app/${location.pathname.split("/")[2]}`);
-  console.log(currentTab)
   const [profile, setProfile] = useState(null);
   const { user } = useAuth();
 

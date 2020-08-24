@@ -26,22 +26,16 @@ const useStyles = makeStyles(() => ({
   cardcontent: {
     display: 'flex',
     justifyContent: 'space-between',
-    padding: 8,
+    padding: 12,
     '&:last-child': {
-      paddingBottom: 8
+      paddingBottom: 12
     }
   }
 }));
 
-const Header = ({ className, ...rest }) => {
+const Header = ({ className, title, ...rest }) => {
   const classes = useStyles();
-
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const handleOpenDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-  };
-
+  
   return (
     <Grid
       alignItems="center"
@@ -54,17 +48,11 @@ const Header = ({ className, ...rest }) => {
       <Grid xs={12} md={12} lg={12} item>
         <Card>
           <CardContent className={classes.cardcontent}>
-            <Typography variant="h2" color="textPrimary">
-              Exams
+            <Typography variant="h3" color="textPrimary">
+              {title}
             </Typography>
-            <Button onClick={() => handleOpenDrawer()}>
-              {drawerOpen ? <ExpandLessIcon /> : <SearchIcon />}
-            </Button>
           </CardContent>
         </Card>
-        <Collapse in={drawerOpen}>
-          <Filter />
-        </Collapse>
       </Grid>
     </Grid>
   );

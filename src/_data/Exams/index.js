@@ -6,7 +6,18 @@ const exams = [
     description:
       'This exam should be a breeze for you after reviewing Lesson 1.',
     image:
-      'https://images.pexels.com/photos/165907/pexels-photo-165907.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+      'https://images.pexels.com/photos/165907/pexels-photo-165907.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    questions: [
+      {
+        text: "Hello? What's your name?",
+        answers: [
+          'Hello, my name is Carlos.',
+          'Hello, my name Carlos.',
+          'Hello, I name is Carlos.',
+          'Hello, name is Carlos.'
+        ]
+      }
+    ]
   },
   {
     title: 'Greetings and Goodbyes II',
@@ -25,7 +36,7 @@ const exams = [
       'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
   },
   {
-    title: "The verb 'to be' I",
+    title: 'The verb to be I',
     type: 'Grammar',
     difficulty: 1,
     description:
@@ -34,7 +45,7 @@ const exams = [
       'https://images.pexels.com/photos/3556662/pexels-photo-3556662.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
   },
   {
-    title: "The verb 'to be' II",
+    title: 'The verb to be II',
     type: 'Grammar',
     difficulty: 2,
     description:
@@ -43,7 +54,7 @@ const exams = [
       'https://images.pexels.com/photos/1427432/pexels-photo-1427432.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
   },
   {
-    title: "The verb 'to be' III",
+    title: 'The verb to be III',
     type: 'Grammar',
     difficulty: 3,
     description: 'The final test. This is the most challenging test, so far.',

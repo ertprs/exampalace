@@ -37,7 +37,6 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const VocabularyFeedCard = ({ word }) => {
-  console.log(word.word);
   const classes = useStyles();
   return (
     <div className={classes.cardDiv}>

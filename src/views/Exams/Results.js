@@ -17,6 +17,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ProjectCard from 'src/components/ProjectCard';
 import ExamCard from './ExamCard';
 import exams from 'src/_data/Exams';
+
 const useStyles = makeStyles(theme => ({
   root: {},
   title: {
@@ -98,7 +99,7 @@ const Results = ({ className, projects, ...rest }) => {
           </Grid>
         ))}
       </Grid>
-      <Box mt={6} display="flex" justifyContent="center">
+      <Box mt={2} display="flex" justifyContent="center">
         <Pagination count={3} />
       </Box>
       <Menu

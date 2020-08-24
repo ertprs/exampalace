@@ -68,9 +68,6 @@ const TopReferrals = ({ className, ...rest }) => {
   useEffect(() => {
     getReferrals();
   }, [getReferrals]);
-  useEffect(() => {
-    console.log(openedWord);
-  }, [openedWord]);
 
   const handleOpenedWord = index => {
     if (index === openedWord) {

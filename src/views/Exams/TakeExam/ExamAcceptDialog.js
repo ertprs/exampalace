@@ -140,7 +140,7 @@ export default function ExamAcceptDialog({ className, exam, ...rest }) {
           <Button
             component={RouterLink}
             color="primary"
-            to={`/app/exams/${exam.title.replace(/\s/g, '-')}`}
+            to={`/app/exams/${exam.title.replace(/\s/g, '-').toLowerCase()}`}
             className={classes.dialogButton}
           >
             Yes

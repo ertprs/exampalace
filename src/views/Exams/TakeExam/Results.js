@@ -4,6 +4,15 @@ import clsx from 'clsx';
 import { Grid, makeStyles } from '@material-ui/core';
 import Instructions from './Instructions';
 import ExamTemplate from './ExamTemplate';
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
 const useStyles = makeStyles(theme => ({
   root: {},
   title: {
@@ -40,7 +49,12 @@ const Results = ({ className, exam, ...rest }) => {
       <Grid container spacing={1}>
         {!startQuiz && <Instructions startQuiz={handleStartQuiz} exam={exam} />}
         <Grid item xs={12} md={12} lg={12}>
-          {startQuiz && <ExamTemplate questions={exam.questions} title={exam.title} />}
+          {startQuiz && (
+            <ExamTemplate
+              questions={shuffleArray(exam.questions)}
+              title={exam.title}
+            />
+          )}
         </Grid>
       </Grid>
     </div>

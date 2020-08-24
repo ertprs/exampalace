@@ -10,7 +10,18 @@ import {
 } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import { Rating } from '@material-ui/lab';
+import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import DoneIcon from '@material-ui/icons/Done';
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
 const StyledRating = withStyles(theme => ({
   iconFilled: {
     color: theme.palette.primary.main
@@ -48,17 +59,22 @@ const useStyles = makeStyles(theme => ({
   scoreCount: {
     display: 'flex',
     alignItems: 'center',
+    flexDirection: 'row-reverse',
     paddingLeft: '8px',
-    paddingRight: '8px',
-    marginBottom: '-24px'
+    paddingRight: '8px'
   }
 }));
 
 function ExamTemplate({ questions, title }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [correctAnswer, setCorrectAnswer] = useState(
+    questions[currentQuestion].answers[0]
+  );
+
+  const [answers, setAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+
   const [score, setScore] = useState(0);
-  const correctAnswer = questions[currentQuestion].answers[0];
 
   const classes = useStyles();
 
@@ -66,17 +82,29 @@ function ExamTemplate({ questions, title }) {
     setSelectedAnswer(answer);
   };
 
+  useEffect(() => {
+    setAnswers(shuffleArray(questions[currentQuestion].answers));
+  }, [currentQuestion]);
+
   const handleNextQuestion = () => {
     if (selectedAnswer === correctAnswer) {
-      alert('correct');
-    } else {
-      alert('incorrect');
+      setScore(score + 1);
     }
+    setCurrentQuestion(currentQuestion + 1);
   };
 
   return (
     <>
       <Box mb={3}>
+        <div className={classes.scoreCount}>
+          <StyledRating
+            readOnly
+            value={score}
+            max={10}
+            icon={<DoneIcon />}
+            // emptyIcon={<SentimentDissatisfiedIcon />}
+          />
+        </div>
         <Card>
           <div className={classes.questionCount}>
             <Typography variant="overline" color="textSecondary">
@@ -100,18 +128,8 @@ function ExamTemplate({ questions, title }) {
             </Typography>
           </Box>
         </Card>
-        <div className={classes.scoreCount}>
-          <StyledRating
-            readOnly
-            value={score}
-            max={questions.length}
-            icon={<DoneIcon />}
-          />
-        </div>
       </Box>
-      {questions[currentQuestion].answers.map((answer, i) => {
-        console.log(selectedAnswer);
-        console.log(i);
+      {answers.map((answer, i) => {
         return (
           <Box mb={1} key={answer}>
             <Card onClick={() => handleSelectedAnswer(answer)}>

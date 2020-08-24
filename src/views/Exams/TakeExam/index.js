@@ -24,9 +24,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
 const ExamsView = () => {
   let location = useLocation();
   const classes = useStyles();
+
+
 
   const [exam, setExam] = useState(
     exams.find(

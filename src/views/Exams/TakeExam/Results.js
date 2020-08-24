@@ -39,7 +39,7 @@ const Results = ({ className, exam, ...rest }) => {
     <div className={clsx(classes.root, className)} {...rest}>
       <Grid container spacing={1}>
         {!startQuiz && <Instructions startQuiz={handleStartQuiz} exam={exam} />}
-        {startQuiz && <ExamTemplate exam={exam} />}
+        {startQuiz && <ExamTemplate questions={exam.questions} />}
       </Grid>
     </div>
   );

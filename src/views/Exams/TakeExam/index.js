@@ -49,7 +49,7 @@ const ExamsView = () => {
       <Container maxWidth="lg" className={classes.container}>
         <Header title={exam.title} />
         <Box mt={1}>
-          <Results projects={lessons} />
+          <Results exam={exam} />
         </Box>
       </Container>
     </Page>

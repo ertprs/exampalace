@@ -1,23 +1,9 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {
-  Box,
-  Button,
-  Grid,
-  ListItemText,
-  Menu,
-  MenuItem,
-  Typography,
-  makeStyles
-} from '@material-ui/core';
-import { ToggleButtonGroup, ToggleButton, Pagination } from '@material-ui/lab';
-import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ProjectCard from 'src/components/ProjectCard';
-import ExamCard from './ExamCard';
-import exams from 'src/_data/Exams';
-
+import { Grid, makeStyles } from '@material-ui/core';
+import Instructions from './Instructions';
+import ExamTemplate from './ExamTemplate';
 const useStyles = makeStyles(theme => ({
   root: {},
   title: {
@@ -39,20 +25,29 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Results = ({ className, projects, ...rest }) => {
+const Results = ({ className, exam, ...rest }) => {
+  const [startQuiz, setStartQuiz] = useState(false);
+  const [countDown, setCountDown] = useState(3);
+
+  const handleStartQuiz = () => {
+    setStartQuiz(true);
+  };
 
   const classes = useStyles();
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Grid container spacing={1}></Grid>
+      <Grid container spacing={1}>
+        {!startQuiz && <Instructions startQuiz={handleStartQuiz} exam={exam} />}
+        {startQuiz && <ExamTemplate exam={exam} />}
+      </Grid>
     </div>
   );
 };
 
 Results.propTypes = {
   className: PropTypes.string,
-  projects: PropTypes.array.isRequired
+  exam: PropTypes.object.isRequired
 };
 
 export default Results;

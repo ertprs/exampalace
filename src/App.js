@@ -31,6 +31,8 @@ const App = () => {
     theme: settings.theme
   });
 
+  console.log(process.env.REACT_APP_TEST)
+
  
   return (
     <ThemeProvider theme={theme}>

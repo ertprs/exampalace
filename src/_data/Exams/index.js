@@ -16,6 +16,15 @@ const exams = [
           'Hello, I name is Carlos.',
           'Hello, name is Carlos.'
         ]
+      },
+      {
+        text: "What's up?",
+        answers: [
+          'Nothing, just watching TV.',
+          "I'm fine thanks.",
+          'Thank you, you too.',
+          'Can you repeat that?'
+        ]
       }
     ]
   },

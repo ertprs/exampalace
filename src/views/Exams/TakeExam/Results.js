@@ -40,7 +40,7 @@ const Results = ({ className, exam, ...rest }) => {
       <Grid container spacing={1}>
         {!startQuiz && <Instructions startQuiz={handleStartQuiz} exam={exam} />}
         <Grid item xs={12} md={12} lg={12}>
-          {startQuiz && <ExamTemplate questions={exam.questions} />}
+          {startQuiz && <ExamTemplate questions={exam.questions} title={exam.title} />}
         </Grid>
       </Grid>
     </div>

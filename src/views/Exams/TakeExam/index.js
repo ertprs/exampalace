@@ -47,8 +47,7 @@ const ExamsView = () => {
   return (
     <Page className={classes.root} title="Exams">
       <Container maxWidth="lg" className={classes.container}>
-        <Header title={exam.title} />
-        <Box mt={1}>
+        <Box mt={6}>
           <Results exam={exam} />
         </Box>
       </Container>

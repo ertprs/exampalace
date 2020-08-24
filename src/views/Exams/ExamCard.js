@@ -42,7 +42,6 @@ const useStyles = makeStyles(theme => ({
   image: {
     width: '100%',
     borderRadius: '5px',
-    height: '190px'
   }
 }));
 

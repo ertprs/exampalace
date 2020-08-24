@@ -31,6 +31,45 @@ const useStyles = makeStyles(theme => ({
   likedButton: {
     color: colors.red[600]
   },
+  imageContainer: {
+    overflow: 'hidden',
+    height: '210px',
+    position: 'relative'
+  },
+  imageTitleBg: {
+    zIndex: 99,
+    background: 'rgb(0,0,0)',
+    background:
+      'linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(255,255,255,0) 100%)',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    width: '100%',
+    height: '30px'
+  },
+  imageTypeBg: {
+    zIndex: 99,
+    background: 'rgb(0,0,0)',
+    background:
+      'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%)',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    height: '30px'
+  },
+  imageTitle: {
+    zIndex: 99,
+    position: 'absolute',
+    top: 3,
+    left: 3
+  },
+  imageType: {
+    zIndex: 99,
+    position: 'absolute',
+    bottom: 1,
+    right: 3
+  },
   progress: {
     margin: theme.spacing(0, 1),
     flexGrow: 1
@@ -41,7 +80,10 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     width: '100%',
-    borderRadius: '5px',
+    '&:hover': {
+      transform: 'scale(1.2)'
+    },
+    transition: 'all 0.3s ease-in-out'
   }
 }));
 
@@ -62,24 +104,24 @@ const ProjectCard = ({ className, project: exam, ...rest }) => {
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
-      <Box p={1}>
-        {/* <CardMedia className={classes.image} image={project.image} /> */}
-        <Box mt={1}>
-          <Typography color="textPrimary" variant="h4">
-            {exam.title}
-          </Typography>
-          <Typography color="textSecondary" variant="overline">
-            {exam.type}
-          </Typography>
-        </Box>
-      </Box>
-      <Box pb={1} px={2}>
-        <Typography color="textSecondary" variant="body2">
-          {exam.caption}
+      <Box className={classes.imageContainer} mb={1}>
+        <div className={classes.imageTitleBg}>{' '}</div>
+        <Typography
+          color="textPrimary"
+          variant="h4"
+          className={classes.imageTitle}
+        >
+          {exam.title}
         </Typography>
-      </Box>
-      <Box pb={1} px={2}>
         <img src={exam.image} alt={exam.title} className={classes.image} />
+        <div className={classes.imageTypeBg}>{' '}</div>
+        <Typography
+          color="textSecondary"
+          variant="overline"
+          className={classes.imageType}
+        >
+          {exam.type}
+        </Typography>
       </Box>
       <Box pb={1} px={2}>
         <Typography color="textSecondary" variant="body2">

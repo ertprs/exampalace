@@ -23,6 +23,32 @@ const exams = [
     description: 'Professional greetings for professional English.',
     image:
       'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+  },
+  {
+    title: "The verb 'to be' I",
+    type: 'Grammar',
+    difficulty: 1,
+    description:
+      'Test your knowledge of the basic forms. Make sure to review Lesson 1.',
+    image:
+      'https://images.pexels.com/photos/3556662/pexels-photo-3556662.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+  },
+  {
+    title: "The verb 'to be' II",
+    type: 'Grammar',
+    difficulty: 2,
+    description:
+      'Can you answer all questions correctly? This is a bit more challenging. Test your knowledge of more advanced forms',
+    image:
+      'https://images.pexels.com/photos/1427432/pexels-photo-1427432.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+  },
+  {
+    title: "The verb 'to be' III",
+    type: 'Grammar',
+    difficulty: 3,
+    description: 'The final test. This is the most challenging test, so far.',
+    image:
+      'https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500'
   }
 ];
 

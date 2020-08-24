@@ -24,13 +24,10 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { Users as UsersIcon } from 'react-feather';
 import getInitials from 'src/utils/getInitials';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import ExamAcceptDialog from './ExamAcceptDialog';
+
 const useStyles = makeStyles(theme => ({
   root: {},
-  image: {
-    height: 200,
-    backgroundColor: theme.palette.background.dark,
-    borderRadius: '3px'
-  },
   likedButton: {
     color: colors.red[600]
   },
@@ -44,7 +41,8 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     width: '100%',
-    borderRadius: '5px'
+    borderRadius: '5px',
+    height: '190px'
   }
 }));
 
@@ -71,7 +69,7 @@ const ProjectCard = ({ className, project: exam, ...rest }) => {
           <Typography color="textPrimary" variant="h4">
             {exam.title}
           </Typography>
-          <Typography color="textPrimary" variant="caption">
+          <Typography color="textSecondary" variant="overline">
             {exam.type}
           </Typography>
         </Box>
@@ -99,15 +97,7 @@ const ProjectCard = ({ className, project: exam, ...rest }) => {
           readOnly
         />
         <Box flexGrow={1} />
-        <Link
-          style={{ textDecoration: 'none' }}
-          component={RouterLink}
-          to="/app/lessons/1"
-        >
-          <Button color="secondary" variant="outlined" size="small">
-            Start
-          </Button>
-        </Link>
+        <ExamAcceptDialog exam={exam} />
       </Box>
     </Card>
   );

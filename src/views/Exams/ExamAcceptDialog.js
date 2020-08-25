@@ -72,6 +72,7 @@ export default function ExamAcceptDialog({ className, exam, ...rest }) {
         variant="outlined"
         color="primary"
         onClick={handleClickOpen}
+        disabled={!(exam.questions?.length > 0)}
       >
         start
       </Button>

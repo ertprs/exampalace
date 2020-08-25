@@ -10,8 +10,8 @@ const exams = [
     questions: [
       {
         text: "Hello? What's your name?",
+        correctAnswer: 'Hello, my name is Carlos.',
         answers: [
-          'Hello, my name is Carlos.',
           'Hello, my name Carlos.',
           'Hello, I name is Carlos.',
           'Hello, name is Carlos.'
@@ -19,8 +19,8 @@ const exams = [
       },
       {
         text: "What's up?",
+        correctAnswer: 'Nothing, just watching TV.',
         answers: [
-          'Nothing, just watching TV.',
           "I'm fine thanks.",
           'Thank you, you too.',
           'Can you repeat that?'

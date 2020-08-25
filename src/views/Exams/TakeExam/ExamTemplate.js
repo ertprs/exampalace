@@ -30,6 +30,11 @@ const StyledRating = withStyles(theme => ({
   }
 }))(Rating);
 const useStyles = makeStyles(theme => ({
+  lockedOption: {
+    '& .checkIcon': {
+      display: 'none'
+    }
+  },
   button: {
     '& .checkIcon': {
       display: 'none'
@@ -40,6 +45,12 @@ const useStyles = makeStyles(theme => ({
     '&:hover .checkIcon': {
       display: 'flex'
     }
+  },
+  wrongAnswer: {
+    opacity: 0.5
+  },
+  correctAnswer: {
+    backgroundColor: theme.palette.secondary.main
   },
   checkIconSelected: {
     display: 'flex'
@@ -74,12 +85,12 @@ function ExamTemplate({ questions, title }) {
   const [examFinished, setExamFinished] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(
-    questions[currentQuestion].answers[0]
+    questions[currentQuestion].correctAnswer
   );
 
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  const [answers, setAnswers] = useState([]);
+  const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const [score, setScore] = useState(0);
@@ -91,13 +102,21 @@ function ExamTemplate({ questions, title }) {
   };
 
   useEffect(() => {
-    setCorrectAnswer(questions[currentQuestion].answers[0]);
-    setAnswers(shuffleArray(questions[currentQuestion].answers));
+    setCorrectAnswer(questions[currentQuestion].correctAnswer);
+    const combinedAnswers = questions[currentQuestion].answers.concat(
+      questions[currentQuestion].correctAnswer
+    );
+    setShuffledAnswers(shuffleArray(combinedAnswers));
   }, [currentQuestion]);
 
   const handleHasSubmitted = () => {
     setHasSubmitted(true);
   };
+
+  useEffect(() => {
+    console.log(correctAnswer);
+    console.log(selectedAnswer);
+  }, [correctAnswer]);
 
   const handleNextQuestion = () => {
     if (selectedAnswer === correctAnswer) {
@@ -152,7 +171,7 @@ function ExamTemplate({ questions, title }) {
           </Box>
         </Card>
       </Box>
-      {answers.map((answer, i) => {
+      {shuffledAnswers.map((answer, i) => {
         return (
           <Box mb={1} key={answer}>
             <Card onClick={() => handleSelectedAnswer(answer)}>
@@ -163,7 +182,15 @@ function ExamTemplate({ questions, title }) {
                 justifyContent="center"
                 alignItems="center"
                 height="50px"
-                className={classes.button}
+                className={`${
+                  hasSubmitted ? classes.lockedOption : classes.button
+                } ${
+                  hasSubmitted
+                    ? correctAnswer === answer
+                      ? classes.correctAnswer
+                      : classes.wrongAnswer
+                    : ''
+                }`}
               >
                 <Typography variant="body1">{answer}</Typography>
                 <CheckCircleOutlineIcon

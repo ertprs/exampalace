@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
     '& .checkIcon': {
       display: 'none'
     },
+    '&:hover': {
+      backgroundColor: theme.palette.action.hover
+    },
     '&:hover .checkIcon': {
       display: 'flex'
     }
@@ -74,6 +77,8 @@ function ExamTemplate({ questions, title }) {
     questions[currentQuestion].answers[0]
   );
 
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
   const [answers, setAnswers] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
@@ -86,9 +91,13 @@ function ExamTemplate({ questions, title }) {
   };
 
   useEffect(() => {
-    setCorrectAnswer(questions[currentQuestion].answers[0])
+    setCorrectAnswer(questions[currentQuestion].answers[0]);
     setAnswers(shuffleArray(questions[currentQuestion].answers));
   }, [currentQuestion]);
+
+  const handleHasSubmitted = () => {
+    setHasSubmitted(true);
+  };
 
   const handleNextQuestion = () => {
     if (selectedAnswer === correctAnswer) {
@@ -98,6 +107,8 @@ function ExamTemplate({ questions, title }) {
       setExamFinished(true);
     } else {
       setCurrentQuestion(currentQuestion + 1);
+      setSelectedAnswer(null);
+      setHasSubmitted(false);
     }
   };
 
@@ -176,8 +187,18 @@ function ExamTemplate({ questions, title }) {
         alignItems="center"
         height="50px"
       >
-        <Button variant="outlined" onClick={() => handleNextQuestion()}>
-          Ok
+        <Button
+          variant="outlined"
+          disabled={selectedAnswer === null}
+          onClick={() => {
+            if (!hasSubmitted) {
+              handleHasSubmitted();
+            } else {
+              handleNextQuestion();
+            }
+          }}
+        >
+          {hasSubmitted ? 'Next' : 'Check'}
         </Button>
       </Box>
     </>

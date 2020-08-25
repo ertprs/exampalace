@@ -85,8 +85,8 @@ export default function Instructions({ className, exam, score, ...rest }) {
         </Box>
 
         <Box
-          mt={1}
-          px={2}
+          p={2}
+          minWidth="300px"
           display="flex"
           textAlign="center"
           justifyContent="center"
@@ -103,7 +103,7 @@ export default function Instructions({ className, exam, score, ...rest }) {
             color="primary"
             className={classes.dialogButton}
           >
-            Start
+            Accept
           </Button>
         </Box>
       </Dialog>

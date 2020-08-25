@@ -55,7 +55,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function Instructions({ className, exam, startQuiz, ...rest }) {
+export default function Instructions({ className, exam, score, ...rest }) {
   const [open, setOpen] = React.useState(true);
   const classes = useStyles();
 
@@ -90,14 +90,10 @@ export default function Instructions({ className, exam, startQuiz, ...rest }) {
           display="flex"
           textAlign="center"
           justifyContent="center"
+          width="100%"
         >
           <Typography color="textPrimary" variant="h4">
-            You have 50 seconds to answer 7 questions.
-          </Typography>
-        </Box>
-        <Box px={5} mb={2} display="flex" justifyContent="center">
-          <Typography color="textSecondary" variant="overline">
-            good luck
+            You scored: {score}
           </Typography>
         </Box>
         <Divider />

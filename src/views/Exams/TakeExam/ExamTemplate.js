@@ -86,6 +86,7 @@ function ExamTemplate({ questions, title }) {
   };
 
   useEffect(() => {
+    setCorrectAnswer(questions[currentQuestion].answers[0])
     setAnswers(shuffleArray(questions[currentQuestion].answers));
   }, [currentQuestion]);
 
@@ -101,7 +102,7 @@ function ExamTemplate({ questions, title }) {
   };
 
   if (examFinished) {
-    return <CompleteDialog />;
+    return <CompleteDialog score={score} />;
   }
 
   return (

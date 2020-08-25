@@ -113,11 +113,6 @@ function ExamTemplate({ questions, title }) {
     setHasSubmitted(true);
   };
 
-  useEffect(() => {
-    console.log(correctAnswer);
-    console.log(selectedAnswer);
-  }, [correctAnswer]);
-
   const handleNextQuestion = () => {
     if (selectedAnswer === correctAnswer) {
       setScore(score + 1);

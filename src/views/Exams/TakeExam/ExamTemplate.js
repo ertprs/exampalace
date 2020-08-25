@@ -13,6 +13,8 @@ import { Rating } from '@material-ui/lab';
 import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import DoneIcon from '@material-ui/icons/Done';
+import CompleteDialog from './CompletedDialog';
+
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
@@ -66,6 +68,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ExamTemplate({ questions, title }) {
+  const [examFinished, setExamFinished] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(
     questions[currentQuestion].answers[0]
@@ -90,8 +93,16 @@ function ExamTemplate({ questions, title }) {
     if (selectedAnswer === correctAnswer) {
       setScore(score + 1);
     }
-    setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion + 1 === questions.length) {
+      setExamFinished(true);
+    } else {
+      setCurrentQuestion(currentQuestion + 1);
+    }
   };
+
+  if (examFinished) {
+    return <CompleteDialog />;
+  }
 
   return (
     <>
@@ -100,7 +111,7 @@ function ExamTemplate({ questions, title }) {
           <StyledRating
             readOnly
             value={score}
-            max={10}
+            max={questions.length}
             icon={<DoneIcon />}
             // emptyIcon={<SentimentDissatisfiedIcon />}
           />

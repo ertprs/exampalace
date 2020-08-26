@@ -81,7 +81,7 @@ const themesOptions = [
         paper: '#282C34'
       },
       primary: {
-        main: '#11a1a1'
+        main: '#11a1a1',
       },
       secondary: {
         main: '#116969'

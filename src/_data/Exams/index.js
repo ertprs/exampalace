@@ -25,7 +25,17 @@ const exams = [
           'Thank you, you too.',
           'Can you repeat that?'
         ]
-      }
+      },
+      {
+        text: "Did you sleep well?",
+        correctAnswer: 'I was a little uncomfortable.',
+        answers: [
+          "Ok, goodnight!.",
+          'Thank you, you too.',
+          'At 9 p.m.'
+        ]
+      },
+
     ]
   },
   {

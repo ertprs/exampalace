@@ -14,6 +14,7 @@ import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt'
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import DoneIcon from '@material-ui/icons/Done';
 import CompleteDialog from './CompletedDialog';
+import SuperPowerDialog from './SuperPowerDialog';
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -88,6 +89,21 @@ function ExamTemplate({ questions, title }) {
     questions[currentQuestion].correctAnswer
   );
 
+  const [powers, setPowers] = useState([
+    {
+      power: '50/50',
+      active: true
+    },
+    {
+      power: 'Audience',
+      active: false
+    },
+    {
+      power: 'LifeLine',
+      active: false
+    }
+  ]);
+
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
@@ -129,6 +145,18 @@ function ExamTemplate({ questions, title }) {
   if (examFinished) {
     return <CompleteDialog score={score} />;
   }
+
+  const activateSuperPower = ({ power }) => {
+    if (power === '50/50') {
+      setShuffledAnswers(
+        shuffleArray([correctAnswer, questions[currentQuestion].answers[0]])
+      );
+      var data = [...powers];
+      var index = data.findIndex(obj => obj.power === '50/50');
+      data[index].active = false;
+      setPowers(data);
+    }
+  };
 
   return (
     <>
@@ -172,6 +200,20 @@ function ExamTemplate({ questions, title }) {
             )}
           </Box>
         </Card>
+      </Box>
+      <Box
+        mt={-2}
+        display="flex"
+        flexDirection="row-reverse"
+        alignItems="center"
+      >
+        {powers.map((power, i) => (
+          <SuperPowerDialog
+            key={'power-' + i}
+            power={power}
+            activate={superpower => activateSuperPower(superpower)}
+          />
+        ))}
       </Box>
       {shuffledAnswers.map((answer, i) => {
         return (

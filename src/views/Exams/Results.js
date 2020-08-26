@@ -109,7 +109,7 @@ const Results = ({ className, projects, filters, ...rest }) => {
         </Box>
       </Box>
       <Grid container spacing={1}>
-        {sortedExams.map((project,i) => (
+        {sortedExams.map((project, i) => (
           <Grid
             item
             key={`${project.title}-${i}`}
@@ -121,9 +121,11 @@ const Results = ({ className, projects, filters, ...rest }) => {
           </Grid>
         ))}
       </Grid>
-      <Box mt={2} display="flex" justifyContent="center">
-        <Pagination count={3} />
-      </Box>
+      {sortedExams.length > 0 && (
+        <Box mt={2} display="flex" justifyContent="center">
+          <Pagination count={3} />
+        </Box>
+      )}
       <Menu
         anchorEl={sortRef.current}
         onClose={handleSortClose}

@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Results = ({ className, projects, ...rest }) => {
+const Results = ({ className, projects, filters, ...rest }) => {
   const classes = useStyles();
   const sortRef = useRef(null);
   const [openSort, setOpenSort] = useState(false);
@@ -62,6 +62,9 @@ const Results = ({ className, projects, ...rest }) => {
   const handleModeChange = (event, value) => {
     setMode(value);
   };
+
+  console.log("filters")
+  console.log(filters)
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>

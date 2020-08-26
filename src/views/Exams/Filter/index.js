@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { Box, Card, Input, makeStyles } from '@material-ui/core';
@@ -28,17 +28,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Filter = ({ className, ...rest }) => {
+const Filter = ({ className, filters, ...rest }) => {
   const classes = useStyles();
   const [inputValue, setInputValue] = useState('');
-  const [chips, setChips] = useState([
-    'Freelance',
-    'Full Time',
-    'Novice',
-    'Europe',
-    'Android',
-    'Web Developer'
-  ]);
+  const [chips, setChips] = useState([]);
 
   const handleInputChange = event => {
     event.persist();
@@ -63,6 +56,10 @@ const Filter = ({ className, ...rest }) => {
   const handleMultiSelectChange = value => {
     setChips(value);
   };
+
+  useEffect(() => {
+    filters(chips);
+  }, [chips]);
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>

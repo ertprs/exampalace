@@ -33,7 +33,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const Header = ({ className, ...rest }) => {
+const Header = ({ className, setExamFilters, ...rest }) => {
   const classes = useStyles();
 
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -63,7 +63,7 @@ const Header = ({ className, ...rest }) => {
           </CardContent>
         </Card>
         <Collapse in={drawerOpen}>
-          <Filter />
+          <Filter filters={setExamFilters} />
         </Collapse>
       </Grid>
     </Grid>

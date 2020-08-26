@@ -1,11 +1,8 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { Box, Container, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
-import axios from 'src/utils/axios';
-import useIsMountedRef from 'src/hooks/useIsMountedRef';
 import Header from './Header';
 import Results from './Results';
-import { VocabularyFeed } from './VocabularyFeed';
 import lessons from './LessonsDb';
 
 const useStyles = makeStyles(theme => ({
@@ -23,12 +20,19 @@ const useStyles = makeStyles(theme => ({
 const ExamsView = () => {
   const classes = useStyles();
 
+  const [filters, setFilters] = useState([]);
+
+  const setExamFilters = chips => {
+    setFilters(chips);
+  };
+
+
   return (
     <Page className={classes.root} title="Exams">
       <Container maxWidth="lg" className={classes.container}>
-        <Header />
+        <Header setExamFilters={setExamFilters} />
         <Box mt={1}>
-          <Results projects={lessons} />
+          <Results projects={lessons} filters={filters} />
         </Box>
       </Container>
     </Page>

@@ -32,12 +32,12 @@ const Testimonials = ({ className, ...rest }) => {
           color="textPrimary"
           className={classes.title}
         >
-          &quot;I picked up English really quick with this immersive method.
+          &quot;I love teaching English. It's an opportunity to be really creative and expressive.
           <br />
-          It's also tons of fun.&quot;
+          I hope you enjoy this site as much as I enjoyed making it.&quot;
         </Typography>
         <Box mt={6} display="flex" justifyContent="center" alignItems="center">
-          <Avatar src="/static/home/olivier.png" />
+          <Avatar src="/static/images/avatars/me.jpg" />
           <Box ml={2}>
             <Typography variant="body1" color="textPrimary">
               Carlos Zuñiga
@@ -46,7 +46,7 @@ const Testimonials = ({ className, ...rest }) => {
                 display="inline"
                 component="span"
               >
-                , co-creator of @ExamPalace
+                , creator of ExamPalace
               </Typography>
             </Typography>
           </Box>

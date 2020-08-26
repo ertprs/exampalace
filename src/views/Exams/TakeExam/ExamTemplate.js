@@ -202,7 +202,7 @@ function ExamTemplate({ questions, title }) {
         </Card>
       </Box>
       <Box
-        mt={-2}
+        mt={-3}
         display="flex"
         flexDirection="row-reverse"
         alignItems="center"

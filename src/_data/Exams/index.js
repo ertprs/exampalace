@@ -27,15 +27,16 @@ const exams = [
         ]
       },
       {
-        text: "Did you sleep well?",
+        text: 'Did you sleep well?',
         correctAnswer: 'I was a little uncomfortable.',
-        answers: [
-          "Ok, goodnight!.",
-          'Thank you, you too.',
-          'At 9 p.m.'
-        ]
+        answers: ['Ok, goodnight!.', 'Thank you, you too.', 'At 9 p.m.']
       },
-
+      {
+        image:
+          'https://images.pexels.com/photos/101533/pexels-photo-101533.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+        correctAnswer: 'Good morning!',
+        answers: ['Good afternoon!', 'Good evening!', 'Good night!']
+      }
     ]
   },
   {

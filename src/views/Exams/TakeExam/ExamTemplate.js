@@ -111,12 +111,12 @@ function ExamTemplate({ questions, title }) {
 
   const handleHasSubmitted = () => {
     setHasSubmitted(true);
-  };
-
-  const handleNextQuestion = () => {
     if (selectedAnswer === correctAnswer) {
       setScore(score + 1);
     }
+  };
+
+  const handleNextQuestion = () => {
     if (currentQuestion + 1 === questions.length) {
       setExamFinished(true);
     } else {
@@ -153,16 +153,23 @@ function ExamTemplate({ questions, title }) {
           </div>
           <Divider />
           <Box
-            p={2}
+            p={1}
             width="100%"
             display="flex"
             justifyContent="center"
             alignItems="center"
             height="190px"
           >
-            <Typography variant="h2">
-              {questions[currentQuestion].text}
-            </Typography>
+            {questions[currentQuestion].image === undefined ? (
+              <Typography variant="h2">
+                {questions[currentQuestion].text}
+              </Typography>
+            ) : (
+              <img
+                src={questions[currentQuestion].image}
+                style={{ height: '100%', borderRadius: '5px' }}
+              />
+            )}
           </Box>
         </Card>
       </Box>
@@ -171,7 +178,7 @@ function ExamTemplate({ questions, title }) {
           <Box mb={1} key={answer}>
             <Card onClick={() => handleSelectedAnswer(answer)}>
               <Box
-                p={2}
+                p={1}
                 width="100%"
                 display="flex"
                 justifyContent="center"
@@ -202,7 +209,7 @@ function ExamTemplate({ questions, title }) {
       })}
 
       <Box
-        p={2}
+        p={1}
         width="100%"
         display="flex"
         justifyContent="center"

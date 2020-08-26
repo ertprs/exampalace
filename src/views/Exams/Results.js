@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -45,6 +45,7 @@ const Results = ({ className, projects, filters, ...rest }) => {
   const [openSort, setOpenSort] = useState(false);
   const [selectedSort, setSelectedSort] = useState('Most popular');
   const [mode, setMode] = useState('grid');
+  const [sortedExams, setSortedExams] = useState(exams);
 
   const handleSortOpen = () => {
     setOpenSort(true);
@@ -63,8 +64,22 @@ const Results = ({ className, projects, filters, ...rest }) => {
     setMode(value);
   };
 
-  console.log("filters")
-  console.log(filters)
+  useEffect(() => {
+    if (filters.length === 0) {
+      setSortedExams(exams);
+    } else {
+      let newExamList = [];
+      filters.forEach(filter => {
+        exams.filter(exam => {
+          if (exam.type === filter) {
+            newExamList.push(exam);
+          }
+        });
+      });
+      setSortedExams(newExamList);
+    }
+    console.log('filtersChanged');
+  }, [filters]);
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
@@ -76,7 +91,7 @@ const Results = ({ className, projects, filters, ...rest }) => {
         mb={2}
       >
         <Typography className={classes.title} variant="h5" color="textPrimary">
-          {exams.length} Results
+          {sortedExams.length} Results
         </Typography>
         <Box display="flex" alignItems="center">
           <Button
@@ -90,7 +105,7 @@ const Results = ({ className, projects, filters, ...rest }) => {
         </Box>
       </Box>
       <Grid container spacing={1}>
-        {exams.map(project => (
+        {sortedExams.map(project => (
           <Grid
             item
             key={project.title}

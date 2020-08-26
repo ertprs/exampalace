@@ -8,7 +8,7 @@ import MultiSelect from './MultiSelect';
 const selectOptions = [
   {
     label: 'Type',
-    options: ['Reading', 'Writing', 'Grammar', 'Vocabulary', 'Spelling']
+    options: ['Reading', 'Writing', 'Grammar', 'Vocabulary', 'Spelling', 'Conversational']
   },
   {
     label: 'Level',

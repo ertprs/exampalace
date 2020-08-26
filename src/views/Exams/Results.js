@@ -83,7 +83,6 @@ const Results = ({ className, projects, filters, ...rest }) => {
       });
       setSortedExams(newExamList);
     }
-    console.log('filtersChanged');
   }, [filters]);
 
   return (

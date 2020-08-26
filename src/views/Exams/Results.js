@@ -71,7 +71,12 @@ const Results = ({ className, projects, filters, ...rest }) => {
       let newExamList = [];
       filters.forEach(filter => {
         exams.filter(exam => {
-          if (exam.type === filter) {
+          if (
+            exam.type === filter ||
+            (filter === 'Novice' && exam.difficulty === 1) ||
+            (filter === 'Intermediate' && exam.difficulty === 2) ||
+            (filter === 'Expert' && exam.difficulty === 3)
+          ) {
             newExamList.push(exam);
           }
         });
@@ -105,10 +110,10 @@ const Results = ({ className, projects, filters, ...rest }) => {
         </Box>
       </Box>
       <Grid container spacing={1}>
-        {sortedExams.map(project => (
+        {sortedExams.map((project,i) => (
           <Grid
             item
-            key={project.title}
+            key={`${project.title}-${i}`}
             md={mode === 'grid' ? 4 : 12}
             sm={mode === 'grid' ? 6 : 12}
             xs={12}

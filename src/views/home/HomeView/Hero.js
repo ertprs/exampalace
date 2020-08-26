@@ -68,10 +68,10 @@ const Hero = ({ className, ...rest }) => {
               </Typography>
               <Box mt={3}>
                 <Typography variant="body1" color="textSecondary">
-                  A solution to your english learning need. Burst exams that
-                  strengthen your vocabulary, reading, spelling and grammar.
+                  The solution to your English Learning need. Burst Exams that
+                  strengthen your Vocabulary, Reading, Spelling and Grammar.
                   Track your progress and share it with your friends. Offered
-                  with a cutting-edge design and cutting-edge exams as well.
+                  with a cutting-edge design and a cutting-edge corpus.
                 </Typography>
               </Box>
               <Box mt={3}>

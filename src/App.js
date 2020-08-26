@@ -17,7 +17,7 @@ import { AuthProvider } from 'src/contexts/FirebaseAuthContext';
 import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
 import routes, { renderRoutes } from 'src/routes';
-
+import './App.css'
 
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const history = createBrowserHistory();

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
-  Chip,
+  LinearProgress,
   Divider,
   Drawer,
   Hidden,
@@ -411,6 +411,12 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         </Box>
         <Divider />
         <Box p={2}>
+        <LinearProgress
+                className={classes.progress}
+                value={50}
+                color="secondary"
+                variant="determinate"
+              />
           {/* {sections.map((section, i) => (
             <List
               key={`nav-${i}`}

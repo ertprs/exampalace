@@ -177,26 +177,21 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         <Divider />
 
         <Box display="flex" flexDirection="column">
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            pl={1}
-          >
-            <AssessmentIcon />
-            <Typography
-              variant="overline"
-              color="textSecondary"
-              style={{ marginLeft: '8px' }}
-            >
-              Assessment
-            </Typography>
-            <Box flexGrow={1} />
-            <Box p={1}>
-              <Button onClick={() => handleOnClick()}>
+          <Box p={1} flexGrow={1}>
+            <Button onClick={() => handleOnClick()} style={{width: "100%"}}>
+              <Box display="flex" flexGrow={1} alignItems="center">
+                <AssessmentIcon />
+                <Typography
+                  variant="overline"
+                  color="textSecondary"
+                  style={{ marginLeft: '8px' }}
+                >
+                  Assessment
+                </Typography>
+                <Box flexGrow={1} />
                 {collapseIn === true ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-              </Button>
-            </Box>
+              </Box>
+            </Button>
           </Box>
           <Divider />
           <Collapse in={collapseIn}>

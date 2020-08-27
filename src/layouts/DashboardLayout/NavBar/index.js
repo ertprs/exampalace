@@ -50,9 +50,9 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 const skills = [
   'Reading',
   'Writing',
+  'Spelling',
   'Grammar',
   'Vocabulary',
-  'Spelling',
   'Conversational'
 ];
 
@@ -178,7 +178,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
 
         <Box display="flex" flexDirection="column">
           <Box p={1} flexGrow={1}>
-            <Button onClick={() => handleOnClick()} style={{width: "100%"}}>
+            <Button onClick={() => handleOnClick()} style={{ width: '100%' }}>
               <Box display="flex" flexGrow={1} alignItems="center">
                 <AssessmentIcon />
                 <Typography
@@ -209,11 +209,66 @@ const NavBar = ({ onMobileClose, openMobile }) => {
                 <Divider />
               </>
             ))}
+            <Box
+              p={1}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              mt={3}
+            >
+              <Typography variant="overline" color="textSecondary">
+                Lifetime
+              </Typography>
+            </Box>
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-2} mx={2}>
+              <Typography variant="overline" color="textSecondary">
+                Exams:
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                1, 290
+              </Typography>
+            </Box>
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-2} mx={2}>
+              <Typography variant="overline" color="textSecondary">
+                Correct:
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                45, 122
+              </Typography>
+            </Box>
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-2} mx={2}>
+              <Typography variant="overline" color="textSecondary">
+                Questions:
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                54, 111
+              </Typography>
+            </Box>
+            <Box
+              p={1}
+              display="flex"
+              flexWrap="no-wrap"
+              justifyContent="center"
+              mt={2}
+              my={-1}
+            >
+              <Typography variant="overline" color="textSecondary">
+                Grade:
+              </Typography>
+              <Typography
+                variant="h3"
+                color="textSecondary"
+                style={{ marginLeft: '8px' }}
+              >
+                B
+              </Typography>
+            </Box>
+            <Divider />
           </Collapse>
         </Box>
-        {/* {skills.map(skill => (
-          <SkillMeter skill={skill} key={skill} />
-        ))} */}
       </PerfectScrollbar>
     </Box>
   );

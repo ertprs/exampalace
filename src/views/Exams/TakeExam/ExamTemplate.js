@@ -143,7 +143,7 @@ function ExamTemplate({ questions, title }) {
   };
 
   if (examFinished) {
-    return <CompleteDialog score={score} />;
+    return <CompleteDialog score={(score / questions.length) * 100} />;
   }
 
   const activateSuperPower = ({ power }) => {

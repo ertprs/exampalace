@@ -19,10 +19,8 @@ import * as serviceWorker from 'src/serviceWorker';
 import store from 'src/store';
 import { SettingsProvider } from 'src/contexts/SettingsContext';
 import App from 'src/App';
-// const admin = require('firebase-admin');
-// admin.initializeApp();
 
-// export const db = admin.firestore();
+
 
 enableES5();
 

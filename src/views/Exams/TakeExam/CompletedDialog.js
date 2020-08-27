@@ -17,7 +17,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import { Rating } from '@material-ui/lab';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
-
+import CountUp from 'react-countup';
 import Box from '@material-ui/core/Box';
 import Slide from '@material-ui/core/Slide';
 import { Typography } from '@material-ui/core';
@@ -90,10 +90,18 @@ export default function Instructions({ className, exam, score, ...rest }) {
           display="flex"
           textAlign="center"
           justifyContent="center"
+          alignItems="center"
           width="100%"
         >
-          <Typography color="textPrimary" variant="h4">
-            You scored: {score}
+          <Typography
+            color="textPrimary"
+            variant="h5"
+            style={{ marginRight: '8px' }}
+          >
+            You scored:
+          </Typography>
+          <Typography variant="h2" color="textPrimary">
+            <CountUp start={0} end={score} duration={3} />%
           </Typography>
         </Box>
         <Divider />

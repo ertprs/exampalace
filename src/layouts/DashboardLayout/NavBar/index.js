@@ -1,5 +1,5 @@
 /* eslint-disable no-use-before-define */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, matchPath } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -7,13 +7,13 @@ import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
-  LinearProgress,
+  Collapse,
   Divider,
   Drawer,
   Hidden,
   Link,
   List,
-  ListSubheader,
+  Button,
   Typography,
   makeStyles
 } from '@material-ui/core';
@@ -42,9 +42,11 @@ import Logo from 'src/components/Logo';
 import useAuth from 'src/hooks/useAuth';
 import NavItem from './NavItem';
 import SchoolIcon from '@material-ui/icons/School';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import SkillMeter from 'src/components/SkillMeter';
-
+import AssessmentIcon from '@material-ui/icons/Assessment';
 const skills = [
   'Reading',
   'Writing',
@@ -126,6 +128,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   const classes = useStyles();
   const location = useLocation();
   const { user } = useAuth();
+  const [collapseIn, setCollapseIn] = useState(false);
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
@@ -133,6 +136,10 @@ const NavBar = ({ onMobileClose, openMobile }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
+
+  const handleOnClick = () => {
+    setCollapseIn(!collapseIn);
+  };
 
   const content = (
     <Box height="100%" display="flex" flexDirection="column">
@@ -161,18 +168,57 @@ const NavBar = ({ onMobileClose, openMobile }) => {
               {user.name}
             </Link>
             <Typography variant="body2" color="textSecondary">
-              {/* Your tier:
-              {' '} */}
               <Link component={RouterLink} to="/pricing">
                 {user.tier}
               </Link>
             </Typography>
           </Box>
         </Box>
-      <Divider />
-        {skills.map(skill => (
+        <Divider />
+
+        <Box display="flex" flexDirection="column">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            pl={1}
+          >
+            <AssessmentIcon />
+            <Typography
+              variant="overline"
+              color="textSecondary"
+              style={{ marginLeft: '8px' }}
+            >
+              Assessment
+            </Typography>
+            <Box flexGrow={1} />
+            <Box p={1}>
+              <Button onClick={() => handleOnClick()}>
+                {collapseIn === true ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </Button>
+            </Box>
+          </Box>
+          <Divider />
+          <Collapse in={collapseIn}>
+            {skills.map(skill => (
+              <>
+                <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+                  <Typography variant="overline" color="textSecondary">
+                    {skill}
+                  </Typography>
+                  <Box flexGrow={1} />
+                  <Typography variant="overline" color="textSecondary">
+                    85%
+                  </Typography>
+                </Box>
+                <Divider />
+              </>
+            ))}
+          </Collapse>
+        </Box>
+        {/* {skills.map(skill => (
           <SkillMeter skill={skill} key={skill} />
-        ))}
+        ))} */}
       </PerfectScrollbar>
     </Box>
   );

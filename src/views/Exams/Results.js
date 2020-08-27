@@ -94,7 +94,14 @@ const Results = ({ className, projects, filters, ...rest }) => {
         flexWrap="wrap"
         mb={2}
       >
-        <Typography className={classes.title} variant="h5" color="textPrimary">
+        <Typography
+          className={classes.title}
+          variant="h5"
+          color="textPrimary"
+          style={{
+            marginLeft: '8px'
+          }}
+        >
           {sortedExams.length} Results
         </Typography>
         <Box display="flex" alignItems="center">

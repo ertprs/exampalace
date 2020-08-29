@@ -18,7 +18,6 @@ import useSettings from 'src/hooks/useSettings';
 import { createTheme } from 'src/theme';
 import routes, { renderRoutes } from 'src/routes';
 import './App.css';
-import {write,read, getRealTimeUpdates} from 'src/hooks/firestoreRead';
 
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 const history = createBrowserHistory();
@@ -26,17 +25,11 @@ const history = createBrowserHistory();
 const App = () => {
   const { settings } = useSettings();
 
-
-
   const theme = createTheme({
     direction: settings.direction,
     responsiveFontSizes: settings.responsiveFontSizes,
     theme: settings.theme
   });
-
-  write()
-  read()
-  getRealTimeUpdates()
 
   return (
     <ThemeProvider theme={theme}>

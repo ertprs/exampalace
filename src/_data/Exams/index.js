@@ -1,5 +1,51 @@
 const exams = [
   {
+    title: "T. Carlos' Challenge I",
+    type: 'Conversational',
+    difficulty: 2,
+    description: 'My first challenge Exam. I hope you know me well!',
+    image: 'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    questions: [
+      {
+        text: "What's my full Name?",
+        correctAnswer: 'Carlos Alberto Zuñiga Nava',
+        answers: [
+          'Charles Albert Zuñiga Nava',
+          'Carlo Alberto Zuñiga Nava',
+          'Carlangas Albertano Zuñi-GAS Navarruski'
+        ]
+      },
+      {
+        text: 'On a scale from 1 to 10. How much do I love Pokémon?',
+        correctAnswer: '10 - You are bonkers for Pokémon.',
+        answers: [
+          '0 - You absolutely despise Poké-whatever.',
+          "5 -  You think it's cool but you don't play often.",
+          'Can you repeat that?'
+        ]
+      },
+      {
+        text: 'What is my favorite way to say hello?',
+        correctAnswer: "What's up bro?",
+        answers: [
+          'Howdy, Partner!',
+          'How do you do?',
+          'Is it me or did the room just get happier?'
+        ]
+      },
+      {
+        image:
+          'https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+        correctAnswer: 'Teacher Carlos loves Cars!',
+        answers: [
+          "Teacher Carlos' is a Formula 1 Racer",
+          'Teacher Carlos has a collection of 100 toy cars.',
+          "Teacher Carlos doesn't know how to drive."
+        ]
+      }
+    ]
+  },
+  {
     title: 'Greetings and Goodbyes I',
     type: 'Conversational',
     difficulty: 1,

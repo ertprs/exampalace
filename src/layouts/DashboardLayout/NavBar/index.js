@@ -18,26 +18,6 @@ import {
   makeStyles
 } from '@material-ui/core';
 import ReceiptIcon from '@material-ui/icons/ReceiptOutlined';
-import {
-  Briefcase as BriefcaseIcon,
-  Calendar as CalendarIcon,
-  ShoppingCart as ShoppingCartIcon,
-  Folder as FolderIcon,
-  BarChart as BarChartIcon,
-  Lock as LockIcon,
-  UserPlus as UserPlusIcon,
-  AlertCircle as AlertCircleIcon,
-  Trello as TrelloIcon,
-  User as UserIcon,
-  Layout as LayoutIcon,
-  Edit as EditIcon,
-  DollarSign as DollarSignIcon,
-  Mail as MailIcon,
-  MessageCircle as MessageCircleIcon,
-  PieChart as PieChartIcon,
-  Share2 as ShareIcon,
-  Users as UsersIcon
-} from 'react-feather';
 import Logo from 'src/components/Logo';
 import useAuth from 'src/hooks/useAuth';
 import NavItem from './NavItem';
@@ -47,6 +27,11 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import SkillMeter from 'src/components/SkillMeter';
 import AssessmentIcon from '@material-ui/icons/Assessment';
+import {
+  firebaseGetUserSkills,
+  firebaseGetUserExams
+} from 'src/hooks/firestoreRead';
+
 const skills = [
   'Reading',
   'Writing',
@@ -129,6 +114,23 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
   const { user } = useAuth();
   const [collapseIn, setCollapseIn] = useState(false);
+  const [lifeTimeExams, setLifeTimeExams] = useState(0);
+  const [skillLevels, setSkillLevels] = useState({
+    reading: 0,
+    writing: 0,
+    grammar: 0,
+    spelling: 0,
+    vocabulary: 0,
+    conversational: 0
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setSkillLevels(await firebaseGetUserSkills(user.email));
+      setLifeTimeExams(await firebaseGetUserExams(user.email));
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
@@ -139,6 +141,27 @@ const NavBar = ({ onMobileClose, openMobile }) => {
 
   const handleOnClick = () => {
     setCollapseIn(!collapseIn);
+  };
+
+  const renderScores = () => {
+    let content = [];
+    for (const [key, value] of Object.entries(skillLevels)) {
+      content.push(
+        <div key={key}>
+          <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+            <Typography variant="overline" color="textSecondary">
+              {key}
+            </Typography>
+            <Box flexGrow={1} />
+            <Typography variant="overline" color="textSecondary">
+              {value}%
+            </Typography>
+          </Box>
+          <Divider />
+        </div>
+      );
+    }
+    return content;
   };
 
   const content = (
@@ -195,20 +218,69 @@ const NavBar = ({ onMobileClose, openMobile }) => {
           </Box>
           <Divider />
           <Collapse in={collapseIn}>
-            {skills.map(skill => (
-              <>
-                <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
-                  <Typography variant="overline" color="textSecondary">
-                    {skill}
-                  </Typography>
-                  <Box flexGrow={1} />
-                  <Typography variant="overline" color="textSecondary">
-                    85%
-                  </Typography>
-                </Box>
-                <Divider />
-              </>
-            ))}
+            {/* {renderScores()} */}
+
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+              <Typography variant="overline" color="textSecondary">
+                Reading
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                {skillLevels.reading}%
+              </Typography>
+            </Box>
+            <Divider />
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+              <Typography variant="overline" color="textSecondary">
+                Writing
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                {skillLevels.writing}%
+              </Typography>
+            </Box>
+            <Divider />
+
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+              <Typography variant="overline" color="textSecondary">
+                Grammar
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                {skillLevels.grammar}%
+              </Typography>
+            </Box>
+            <Divider />
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+              <Typography variant="overline" color="textSecondary">
+                Spelling
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                {skillLevels.spelling}%
+              </Typography>
+            </Box>
+            <Divider />
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+              <Typography variant="overline" color="textSecondary">
+                Vocabulary
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                {skillLevels.vocabulary}%
+              </Typography>
+            </Box>
+            <Divider />
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-1}>
+              <Typography variant="overline" color="textSecondary">
+                Conversational
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                {skillLevels.conversational}%
+              </Typography>
+            </Box>
+            <Divider />
             <Box
               p={1}
               display="flex"
@@ -226,7 +298,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
               </Typography>
               <Box flexGrow={1} />
               <Typography variant="overline" color="textSecondary">
-                1, 290
+                {lifeTimeExams}
               </Typography>
             </Box>
             <Box p={1} display="flex" flexWrap="no-wrap" my={-2} mx={2}>

@@ -25,7 +25,7 @@ import { Users as UsersIcon } from 'react-feather';
 import getInitials from 'src/utils/getInitials';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import ExamAcceptDialog from './ExamAcceptDialog';
-
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 const useStyles = makeStyles(theme => ({
   root: {},
   likedButton: {
@@ -64,6 +64,13 @@ const useStyles = makeStyles(theme => ({
     top: 3,
     left: 3
   },
+  imageTrophy: {
+    zIndex: 99,
+    position: 'absolute',
+    top: 3,
+    right: 3
+  },
+  inactiveTrophy: {},
   imageType: {
     zIndex: 99,
     position: 'absolute',
@@ -113,6 +120,11 @@ const ProjectCard = ({ className, project: exam, ...rest }) => {
         >
           {exam.title}
         </Typography>
+        <EmojiEventsIcon
+          className={classes.imageTrophy}
+          // style={{ color: 'rgba(100,100,100,0.5)', fontSize: 40 }}
+          style={{ color: "#ffb400", fontSize: 32 }}
+        />
         <img src={exam.image} alt={exam.title} className={classes.image} />
         <div className={classes.imageTypeBg}> </div>
         <Typography

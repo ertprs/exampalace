@@ -210,6 +210,11 @@ const routes = [
       },
       {
         exact: true,
+        path: '/app/dictionary/phrasal-verbs',
+        component: lazy(() => import('src/views/Dictionary/PhrasalVerbs'))
+      },
+      {
+        exact: true,
         path: '/app/dictionary/1',
         component: lazy(() => import('src/views/Dictionary'))
       },

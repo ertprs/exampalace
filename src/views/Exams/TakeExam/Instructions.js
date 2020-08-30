@@ -28,7 +28,8 @@ const useStyles = makeStyles(theme => ({
     padding: '8px',
     width: '100%'
   },
-  root: {},
+  dialog: {
+  },
   likedButton: {
     color: colors.red[600]
   },
@@ -87,12 +88,12 @@ export default function Instructions({ className, exam, startQuiz, ...rest }) {
           justifyContent="center"
         >
           <Typography color="textPrimary" variant="h4">
-            You have 50 seconds to answer 7 questions.
+            There are no instructions.
           </Typography>
         </Box>
         <Box px={5} mb={2} display="flex" justifyContent="center">
           <Typography color="textSecondary" variant="overline">
-            good luck
+            Good Luck!
           </Typography>
         </Box>
         <Divider />

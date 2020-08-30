@@ -12,6 +12,8 @@ import { VocabularyFeed } from './VocabularyFeed';
 import lessons from './LessonsDb';
 import exams from 'src/_data/Exams';
 
+import {examReader}from 'src/hooks/firestoreRead'
+
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
@@ -29,6 +31,11 @@ const ExamsView = () => {
   let location = useLocation();
   const classes = useStyles();
 
+  useEffect(() => {
+    console.log('123')
+    examReader.getAll()
+    examReader.getOne('mVCn03YMJsvMBFwuHQLA')
+  },[])
 
 
   const [exam, setExam] = useState(

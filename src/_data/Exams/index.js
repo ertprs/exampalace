@@ -3,8 +3,10 @@ const exams = [
     title: "T. Carlos' Challenge I",
     type: 'Conversational',
     difficulty: 2,
+    recommendedNext: "T. Carlos' Challenge II",
     description: 'My first challenge Exam. I hope you know me well!',
-    image: 'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+    image:
+      'https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
     questions: [
       {
         text: "What's my full Name?",
@@ -49,6 +51,7 @@ const exams = [
     title: 'Greetings and Goodbyes I',
     type: 'Conversational',
     difficulty: 1,
+    recommendedNext: 'Greetings and Goodbyes II',
     description:
       'This exam should be a breeze for you after reviewing Lesson 1.',
     image:

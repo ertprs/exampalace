@@ -114,7 +114,13 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
   const { user } = useAuth();
   const [collapseIn, setCollapseIn] = useState(false);
-  const [lifeTimeExams, setLifeTimeExams] = useState(0);
+  const [lifeTime, setLifeTime] = useState({
+    exams: 0,
+    gold: 0,
+    silver: 0,
+    bronze: 0,
+    grade: 'F'
+  });
   const [skillLevels, setSkillLevels] = useState({
     reading: 0,
     writing: 0,
@@ -127,7 +133,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   useEffect(() => {
     const fetchData = async () => {
       setSkillLevels(await firebaseGetUserSkills(user.email));
-      setLifeTimeExams(await firebaseGetUserExams(user.email));
+      setLifeTime(await firebaseGetUserExams(user.email));
     };
     fetchData();
   }, []);
@@ -298,25 +304,34 @@ const NavBar = ({ onMobileClose, openMobile }) => {
               </Typography>
               <Box flexGrow={1} />
               <Typography variant="overline" color="textSecondary">
-                {lifeTimeExams}
+                {lifeTime.exams}
               </Typography>
             </Box>
             <Box p={1} display="flex" flexWrap="no-wrap" my={-2} mx={2}>
               <Typography variant="overline" color="textSecondary">
-                Correct:
+                Gold:
               </Typography>
               <Box flexGrow={1} />
               <Typography variant="overline" color="textSecondary">
-                45, 122
+                {lifeTime.gold}
               </Typography>
             </Box>
             <Box p={1} display="flex" flexWrap="no-wrap" my={-2} mx={2}>
               <Typography variant="overline" color="textSecondary">
-                Questions:
+                Silver:
               </Typography>
               <Box flexGrow={1} />
               <Typography variant="overline" color="textSecondary">
-                54, 111
+                {lifeTime.silver}
+              </Typography>
+            </Box>
+            <Box p={1} display="flex" flexWrap="no-wrap" my={-2} mx={2}>
+              <Typography variant="overline" color="textSecondary">
+                Bronze:
+              </Typography>
+              <Box flexGrow={1} />
+              <Typography variant="overline" color="textSecondary">
+                {lifeTime.bronze}
               </Typography>
             </Box>
             <Box
@@ -324,6 +339,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
               display="flex"
               flexWrap="no-wrap"
               justifyContent="center"
+              alignItems="center"
               mt={2}
               my={-1}
             >
@@ -335,7 +351,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
                 color="textSecondary"
                 style={{ marginLeft: '8px' }}
               >
-                B
+                {lifeTime.grade}
               </Typography>
             </Box>
             <Divider />

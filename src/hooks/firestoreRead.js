@@ -98,8 +98,50 @@ export const firebaseGetUserSkills = async email => {
 };
 
 export const firebaseGetUserExams = async email => {
-  var newUserRef = db.collection('users').doc(email);
-  const newUser = await newUserRef.get();
-  console.log(newUser.data())
-  return newUser.data().examsTaken.length;
+  var userRef = db.collection('users').doc(email);
+  const user = await userRef.get();
+  const exams = user.data().examsTaken;
+  let gold = 0;
+  let silver = 0;
+  let bronze = 0;
+  exams.forEach((exam, i) => {
+    gold += exam.bestScore === 100 ? 1 : 0;
+    silver += exam.bestScore >= 90 && exam.bestScore < 100 ? 1 : 0;
+    bronze += exam.bestScore < 90 && exam.bestScore >= 80 ? 1 : 0;
+  });
+
+  let totalTrophies = gold + silver * 0.9 + bronze * 0.8;
+
+  let finalScore = totalTrophies / exams.length;
+
+  console.log(finalScore);
+
+  let grade = 'F';
+
+  if (finalScore === 1) {
+    grade = 'A+';
+  }
+  if (finalScore < 1 && finalScore > .9) {
+    grade = 'A';
+  }
+  if (finalScore < .9 && finalScore > .88) {
+    grade = 'B+';
+  }
+  if (finalScore < .88 && finalScore > .8) {
+    grade = 'B';
+  }
+  if (finalScore < .8 && finalScore > .7) {
+    grade = 'C';
+  }
+  if (finalScore < .7 && finalScore > .6) {
+    grade = 'D';
+  }
+
+  return {
+    exams: exams.length,
+    gold: gold,
+    silver: silver,
+    bronze: bronze,
+    grade: grade
+  };
 };

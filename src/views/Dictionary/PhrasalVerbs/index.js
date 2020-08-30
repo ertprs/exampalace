@@ -3,6 +3,7 @@ import { Container, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Header from './Header';
 import Feed from './Feed';
+import Description from './Description';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,6 +22,8 @@ const SchoolView = () => {
       <Container maxWidth="lg">
         <Header />
         <Feed />
+        <Description />
+
       </Container>
     </Page>
   );

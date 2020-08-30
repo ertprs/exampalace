@@ -6,7 +6,7 @@ import {
   Breadcrumbs,
   Button,
   Grid,
-  Link,
+  Box,
   SvgIcon,
   Typography,
   makeStyles,
@@ -17,15 +17,47 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PlusCircle as PlusIcon } from 'react-feather';
 import './card.scss';
 
+const verbs = [
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through',
+  'Get through'
+];
+
 const useStyles = makeStyles(() => ({
   root: {
-    marginTop: '8px'
+    marginLeft: '-8px',
+    marginRight: '-8px',
+    display: 'flex',
+    marginTop: '8px',
+    overflowX: 'scroll',
+    '&::-webkit-scrollbar': {
+      display: 'none'
+    }
   },
   cardcontent: {
     padding: 8,
     '&:last-child': {
       paddingBottom: 8
     }
+  },
+  card: {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 }));
 
@@ -33,14 +65,33 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardContent className={classes.cardcontent}>
-        <div className="card">
-          <div className="card__side card__side--front">SIDE UNO</div>
-          <div className="card__side card__side--back">SIDE DOS</div>
-        </div>
-      </CardContent>
-    </Card>
+    <div className={classes.root}>
+      {verbs.map((verb, i) => (
+        <Box
+        style= {{
+          marginLeft: i === 0 ? '0' : '8px'
+        }}
+        key={verb}
+        >
+          <div className="flipcard">
+            <div className="flipcard__side flipcard__side--front">
+              <Card className={classes.card}>
+                <Typography variant="h2" color="textPrimary">
+                  Get through
+                </Typography>
+              </Card>
+            </div>
+            <div className="flipcard__side flipcard__side--back">
+              <Card className={classes.card}>
+                <Typography variant="h2" color="textPrimary">
+                  Hacer entender
+                </Typography>
+              </Card>
+            </div>
+          </div>
+        </Box>
+      ))}
+    </div>
   );
 };
 

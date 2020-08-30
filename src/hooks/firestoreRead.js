@@ -114,26 +114,28 @@ export const firebaseGetUserExams = async email => {
 
   let finalScore = totalTrophies / exams.length;
 
-  console.log(finalScore);
-
   let grade = 'F';
+
+  if (exams.length === 0) {
+    grade = '-';
+  }
 
   if (finalScore === 1) {
     grade = 'A+';
   }
-  if (finalScore < 1 && finalScore > .9) {
+  if (finalScore < 1 && finalScore > 0.9) {
     grade = 'A';
   }
-  if (finalScore < .9 && finalScore > .88) {
+  if (finalScore < 0.9 && finalScore > 0.88) {
     grade = 'B+';
   }
-  if (finalScore < .88 && finalScore > .8) {
+  if (finalScore < 0.88 && finalScore > 0.8) {
     grade = 'B';
   }
-  if (finalScore < .8 && finalScore > .7) {
+  if (finalScore < 0.8 && finalScore > 0.7) {
     grade = 'C';
   }
-  if (finalScore < .7 && finalScore > .6) {
+  if (finalScore < 0.7 && finalScore > 0.6) {
     grade = 'D';
   }
 

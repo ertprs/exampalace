@@ -18,17 +18,8 @@ import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import { PlusCircle as PlusIcon } from 'react-feather';
 import './card.scss';
 import PhrasalVerbDialog from './PhrasalVerbDialog';
+import PhrasalVerbs from './_PhrasalVerbList'
 
-const verbs = [
-  'Act on',
-  'Act out',
-  'Be fed up',
-  'Beat up',
-  'Blow up',
-  'Put off',
-  'Show off',
-  'Get through',
-];
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -63,18 +54,18 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      {verbs.map((verb, i) => (
+      {PhrasalVerbs.map((verb, i) => (
         <Box
           style={{
             marginLeft: i === 0 ? '0' : '8px'
           }}
-          key={verb}
+          key={verb.verb}
         >
           <div className="flipcard">
             <div className="flipcard__side flipcard__side--front">
               <Card className={classes.card}>
                 <Typography variant="h2" color="textPrimary">
-                  {verb}
+                  {verb.verb}
                 </Typography>
                 <PhrasalVerbDialog verb={verb} />
               </Card>

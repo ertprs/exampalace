@@ -16,9 +16,12 @@ import {
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PlusCircle as PlusIcon } from 'react-feather';
 import InfoIcon from '@material-ui/icons/Info';
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     marginTop: '8px'
+  },
+  icon: {
+    color: theme.palette.primary.main
   },
   cardcontent: {
     display: 'flex',
@@ -27,6 +30,10 @@ const useStyles = makeStyles(() => ({
     '&:last-child': {
       paddingBottom: 8
     }
+  },
+  coloredText: {
+    color: theme.palette.primary.main,
+    fontStyle: 'italic'
   }
 }));
 
@@ -37,14 +44,16 @@ const Header = () => {
     <Card className={classes.root}>
       <CardContent className={classes.cardcontent}>
         <InfoIcon
+          className={classes.icon}
           style={{
             marginRight: '8px'
           }}
         />
-        <Typography variant="body1" color="textPrimary">
-          Los verbos compuestos en inglés, también conocidos como phrasal verbs,
-          son verbos formados por dos palabras, un adverbio y una preposición
-          que cuando se usan juntos adquieren diferentes significados.
+        <Typography variant="body1" color="textSecondary">
+          Los <span className={classes.coloredText}>verbos compuestos</span> ó{' '}
+          <span className={classes.coloredText}>phrasal verbs</span> son verbos
+          formados por dos palabras, un adverbio y una preposición que cuando se
+          usan juntos adquieren diferentes significados.
         </Typography>
       </CardContent>
     </Card>

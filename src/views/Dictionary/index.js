@@ -25,15 +25,6 @@ const SchoolView = () => {
     <Page className={classes.root} title="Dictionary">
       <Container maxWidth="lg">
         <Header />
-        <Box mt={1}>
-          <VocabularyFeed />
-        </Box>
-        <Box mt={1}>
-          <Filter />
-        </Box>
-        <Box mt={1}>
-          <Results projects={lessons} />
-        </Box>
       </Container>
     </Page>
   );

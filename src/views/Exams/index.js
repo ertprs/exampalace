@@ -32,7 +32,7 @@ const ExamsView = () => {
     <Page className={classes.root} title="Exams">
       <Container maxWidth="lg" className={classes.container}>
         <Header setExamFilters={setExamFilters} />
-        <Filter filters={setExamFilters} />
+
         <Box mt={1}>
           <Results projects={lessons} filters={filters} />
         </Box>

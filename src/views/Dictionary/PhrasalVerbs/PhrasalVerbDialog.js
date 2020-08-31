@@ -39,7 +39,6 @@ export default function ScrollDialog({ verb }) {
         <HelpOutlineIcon />
       </IconButton>
       <Dialog
-        fullWidth={true}
         open={open}
         onClose={handleClose}
         scroll={scroll}

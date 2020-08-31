@@ -43,30 +43,21 @@ const Header = ({ className, setExamFilters, ...rest }) => {
   };
 
   return (
-    <Grid
-      alignItems="center"
-      container
-      justify="space-between"
-      spacing={1}
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
-      <Grid xs={12} md={12} lg={12} item>
-        <Card>
-          <CardContent className={classes.cardcontent}>
-            <Typography variant="h2" color="textPrimary">
-              Exams
-            </Typography>
-            <Button onClick={() => handleOpenDrawer()}>
-              {drawerOpen ? <ExpandLessIcon /> : <SearchIcon />}
-            </Button>
-          </CardContent>
-        </Card>
-        <Collapse in={drawerOpen}>
-          <Filter filters={setExamFilters} />
-        </Collapse>
-      </Grid>
-    </Grid>
+    <>
+      <Card className={classes.root}>
+        <CardContent className={classes.cardcontent}>
+          <Typography variant="h2" color="textPrimary">
+            Exams
+          </Typography>
+          <Button onClick={() => handleOpenDrawer()}>
+            {drawerOpen ? <ExpandLessIcon /> : <SearchIcon />}
+          </Button>
+        </CardContent>
+      </Card>
+      <Collapse in={drawerOpen}>
+        <Filter filters={setExamFilters} />
+      </Collapse>
+    </>
   );
 };
 

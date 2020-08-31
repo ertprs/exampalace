@@ -4,7 +4,6 @@ import Page from 'src/components/Page';
 import Header from './Header';
 import Results from './Results';
 import lessons from './LessonsDb';
-import Filter from './Filter';
 
 const useStyles = makeStyles(theme => ({
   root: {

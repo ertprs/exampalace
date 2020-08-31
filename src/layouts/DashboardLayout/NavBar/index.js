@@ -17,20 +17,18 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
-import ReceiptIcon from '@material-ui/icons/ReceiptOutlined';
 import Logo from 'src/components/Logo';
 import useAuth from 'src/hooks/useAuth';
 import NavItem from './NavItem';
-import SchoolIcon from '@material-ui/icons/School';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
-import SkillMeter from 'src/components/SkillMeter';
-import AssessmentIcon from '@material-ui/icons/Assessment';
+import BarChartIcon from '@material-ui/icons/BarChart';
 import {
   firebaseGetUserSkills,
   firebaseGetUserExams
 } from 'src/hooks/firestoreRead';
+
+import Ranking from './Ranking'
 
 const skills = [
   'Reading',
@@ -209,7 +207,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
           <Box p={1} flexGrow={1}>
             <Button onClick={() => handleOnClick()} style={{ width: '100%' }}>
               <Box display="flex" flexGrow={1} alignItems="center">
-                <AssessmentIcon />
+                <BarChartIcon />
                 <Typography
                   variant="overline"
                   color="textSecondary"
@@ -356,6 +354,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
             </Box>
             <Divider />
           </Collapse>
+          <Ranking />
         </Box>
       </PerfectScrollbar>
     </Box>

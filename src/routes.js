@@ -226,8 +226,13 @@ const routes = [
       {
         exact: true,
         path: '/app/exams',
-        component: lazy(() => import('src/views/Exams'))
+        component: lazy(() => import('src/views/Exams2'))
       },
+      // {
+      //   exact: true,
+      //   path: '/app/exams',
+      //   component: lazy(() => import('src/views/Exams'))
+      // },
       {
         exact: true,
         path: '/app/exams/:examId',

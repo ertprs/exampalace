@@ -96,7 +96,7 @@ const Results = ({ className, projects, ...rest }) => {
           </ToggleButtonGroup>
         </Box>
       </Box>
-      <Grid container spacing={3}>
+      <Grid container spacing={1}>
         {projects.map(project => (
           <Grid
             item

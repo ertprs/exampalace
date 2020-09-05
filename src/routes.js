@@ -303,6 +303,11 @@ const routes = [
         component: lazy(() => import('src/views/pricing/PricingView'))
       },
       {
+        exact: true,
+        path: '/components',
+        component: lazy(() => import('src/components/Pages/ComponentsAPI'))
+      },
+      {
         component: () => <Redirect to="/404" />
       }
     ]

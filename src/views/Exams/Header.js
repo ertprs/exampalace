@@ -18,12 +18,14 @@ import SearchIcon from '@material-ui/icons/Search';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { PlusCircle as PlusIcon } from 'react-feather';
 import Filter from './Filter';
+import { Theme } from '@fullcalendar/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     marginTop: '48px'
   },
   cardcontent: {
+    backgroundColor: theme.palette.background.dark,
     display: 'flex',
     justifyContent: 'space-between',
     padding: 8,
@@ -47,7 +49,7 @@ const Header = ({ className, setExamFilters, ...rest }) => {
       <Card className={classes.root}>
         <CardContent className={classes.cardcontent}>
           <Typography variant="h2" color="textPrimary">
-            Exams
+            Exams 
           </Typography>
           <Button onClick={() => handleOpenDrawer()}>
             {drawerOpen ? <ExpandLessIcon /> : <SearchIcon />}

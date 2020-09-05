@@ -25,7 +25,8 @@ import { Users as UsersIcon } from 'react-feather';
 import getInitials from 'src/utils/getInitials';
 
 const useStyles = makeStyles(theme => ({
-  root: {},
+  root: {
+  },
   image: {
     height: 200,
     backgroundColor: theme.palette.background.dark,
@@ -61,7 +62,7 @@ const ProjectCard = ({ className, project, ...rest }) => {
 
   return (
     <Card className={clsx(classes.root, className)} {...rest}>
-      <Box p={3}>
+      <Box p={2}>
         {/* <CardMedia className={classes.image} image={project.image} /> */}
         <Box mt={1}>
           <Typography color="textPrimary" variant="h4">
@@ -69,17 +70,17 @@ const ProjectCard = ({ className, project, ...rest }) => {
           </Typography>
         </Box>
       </Box>
-      <Box pb={2} px={3}>
+      <Box pb={1} px={2} mt={-1}>
         <Typography color="textSecondary" variant="body2">
           {project.caption}
         </Typography>
       </Box>
-      <Box py={2} px={3}>
+      {/* <Box py={2} px={3}>
         <Grid alignItems="center" container justify="space-between" spacing={3}>
           <Grid item lg={12} md={12} xs={12}>
-            {/* <Typography variant="h5" color="textPrimary">
+            <Typography variant="h5" color="textPrimary">
               Progress
-            </Typography> */}
+            </Typography> 
             <Box display="flex" alignItems="center" flexWrap="wrap" mt={1}>
               <Typography variant="h5" color="textSecondary">
                 50%
@@ -91,7 +92,7 @@ const ProjectCard = ({ className, project, ...rest }) => {
                 variant="determinate"
               />
             </Box>
-          </Grid>
+          </Grid> */}
           {/* <Grid item>
             <Typography variant="h5" color="textPrimary">
               {project.location}
@@ -108,8 +109,8 @@ const ProjectCard = ({ className, project, ...rest }) => {
               Type
             </Typography>
           </Grid> */}
-        </Grid>
-      </Box>
+        {/* </Grid> */}
+      {/* </Box> */}
       <Divider />
       <Box py={2} pl={2} pr={3} display="flex" alignItems="center">
         {/* {isLiked ? (
@@ -134,7 +135,7 @@ const ProjectCard = ({ className, project, ...rest }) => {
           to="/app/lessons/1"
         >
           <Button color="secondary" variant="outlined" size="small">
-            Start
+            Visit
           </Button>
         </Link>
       </Box>

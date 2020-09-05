@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
     marginTop: '48px'
   },
   cardcontent: {
-    padding: 12,
+    padding: 8,
     '&:last-child': {
       paddingBottom: 12
     }

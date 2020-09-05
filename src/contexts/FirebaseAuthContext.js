@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useReducer } from 'react';
 import SplashScreen from 'src/components/SplashScreen';
 import firebase from 'src/lib/firebase';
-import { firebaseGetUser } from 'src/hooks/firestoreRead';
+import { userReader } from 'src/hooks/firestoreRead';
 
 const initialAuthState = {
   isAuthenticated: false,
@@ -71,7 +71,9 @@ export const AuthProvider = ({ children }) => {
       if (user) {
         // Here you should extract the complete user profile to make it available in your entire app.
         // The auth state only provides basic information.
-        console.log(await firebaseGetUser(user.email))
+
+        const userData = await userReader.getOne(user.email);
+        // console.log(userData);
 
         dispatch({
           type: 'AUTH_STATE_CHANGED',

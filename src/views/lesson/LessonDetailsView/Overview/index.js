@@ -1,15 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {
-  Box,
-  Grid,
-  makeStyles
-} from '@material-ui/core';
+import { Box, Grid, makeStyles } from '@material-ui/core';
 import Metadata from './Metadata';
-import Brief from './Brief';
+import Quiz from './Quiz';
 import Members from './Members';
 import TopReferrals from './TopReferrals';
+
+const quizData = {
+  title: 'Welcome to ExamPalace',
+  questions: [
+    {
+      text: "Hi, it's nice to meet you!",
+      correct: 'Thanks! Nice to meet you too!',
+      incorrect: ['Ok!', "What's your favorite food?", "I'm good, thanks!"],
+      translations: {
+        es: 'Hola, es agradable conocerte.'
+      }
+    }
+  ]
+};
 
 const useStyles = makeStyles(() => ({
   root: {}
@@ -22,30 +32,11 @@ const Overview = ({ className, project, ...rest }) => {
     <Grid
       className={clsx(classes.root, className)}
       container
-      spacing={3}
+      spacing={1}
       {...rest}
     >
-      <Grid
-        item
-        lg={8}
-        xl={9}
-        xs={12}
-      >
-        <Brief project={project} />
-        <Box mt={3}>
-          <TopReferrals />
-        </Box>
-      </Grid>
-      <Grid
-        item
-        lg={4}
-        xl={3}
-        xs={12}
-      >
-        <Box mb={3}>
-          <Metadata project={project} />
-        </Box>
-        {/* <Members members={project.members} /> */}
+      <Grid item lg={12} xl={12} xs={12}>
+        <Quiz quizData={quizData} />
       </Grid>
     </Grid>
   );

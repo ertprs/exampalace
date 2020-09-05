@@ -11,18 +11,51 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 0
+  },
+  marquee: {
+    width: '100%'
   }
 }));
 
-const CenteredText = ({ variant, text }) => {
+const CenteredText = ({ variant, text, marquee, list }) => {
   const classes = useStyles();
-  return (
-    <Box className={classes.box}>
-      <Typography variant={variant} color="textPrimary">
-        {text}
-      </Typography>
-    </Box>
-  );
+  if (marquee === undefined || marquee === false) {
+    return (
+      <Box className={classes.box}>
+        <Typography variant={variant} color="textPrimary">
+          {text}
+        </Typography>
+      </Box>
+    );
+  } else {
+    return (
+      <Box className={classes.box}>
+        <marquee behavior="scroll" direction="left" scrollamount={8}>
+          <Typography variant={variant} color="textPrimary">
+            <ul className={classes.marquee}>
+              {list.map((text, i) =>
+                i === 0 ? (
+                  <li
+                    key={'text' + i}
+                    style={{ display: 'inline-block', marginLeft: '0px' }}
+                  >
+                    {text}
+                  </li>
+                ) : (
+                  <li
+                    key={'text' + i}
+                    style={{ display: 'inline-block', marginLeft: '320px' }}
+                  >
+                    {text}
+                  </li>
+                )
+              )}
+            </ul>
+          </Typography>
+        </marquee>
+      </Box>
+    );
+  }
 };
 
 export default CenteredText;

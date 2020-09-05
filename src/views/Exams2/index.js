@@ -13,7 +13,10 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(3)
   },
   container: {
-    padding: '4px 0',
+    [theme.breakpoints.down('sm')]: {
+      padding: '4px 0'
+    },
+    padding: '4px',
     overflow: 'hidden'
   }
 }));
@@ -26,7 +29,6 @@ const ExamsView = () => {
   const setExamFilters = chips => {
     setFilters(chips);
   };
-
 
   return (
     <Page className={classes.root} title="Exams">
